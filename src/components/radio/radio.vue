@@ -1,5 +1,5 @@
 <template>
-  <div>fooders</div>
+  <div>radio</div>
 </template>
 
 <script type="text/ecmascript-6">

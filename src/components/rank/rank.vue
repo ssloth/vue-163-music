@@ -1,7 +1,5 @@
 <template>
-  <div class="content">
-    i'm content
-  </div>
+  <div>rank</div>
 </template>
 
 <script type="text/ecmascript-6">

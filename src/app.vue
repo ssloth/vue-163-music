@@ -1,19 +1,21 @@
+<!--suppress ALL -->
 <template>
   <div id="app">
     <headers></headers>
-    <contents></contents>
-    <footers></footers>
+    <tab></tab>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import Headers from 'components/headers.vue';
-  import Contents from 'components/contents.vue';
-  import Footers from 'components/footers.vue';
+  import Headers from 'components/headers/headers';
+  import Tab from 'components/tab/tab';
 
   export default {
     components: {
-      Headers, Contents, Footers
+      Headers, Tab
     }
   };
 </script>
