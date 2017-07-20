@@ -26,14 +26,14 @@
     width 100%
     background $color-background
     font-size $font-size-medium
-    line-height 35px
+    line-height 30px
     .tab-item
       flex 1
       text-align center
       color $color-text
       .tab-link
-        padding-bottom 5px
+        padding-bottom 2px
       &.router-link-active
         color $color-active
-        border-bottom 3px solid $color-active
+        border-bottom 2px solid $color-active
 </style>
