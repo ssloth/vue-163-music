@@ -1,9 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import recommend from 'components/recommend/recommend';
-import radio from 'components/radio/radio';
-import rank from 'components/rank/rank';
-import playlist from 'components/playlist/playlist';
+import Recommend from 'components/recommend/recommend';
+import Radio from 'components/radio/radio';
+import Rank from 'components/rank/rank';
+import Playlist from 'components/playlist/playlist';
+import Fm from 'components/fm/fm';
+import HotRank from 'components/hotRank/hotRank';
+import RecommendDaily from 'components/recommendDaily/recommendDaily';
+
 Vue.use(Router);
 
 export default new Router({
@@ -14,19 +18,32 @@ export default new Router({
     },
     {
       path: '/recommend',
-      component: recommend
+      component: Recommend,
+      children: [
+        {
+          path: '/recommend/fm',
+          component: Fm
+        },
+        {
+          path: '/recommend/HotRank',
+          component: HotRank
+        }, {
+          path: '/recommend/recommendDaily',
+          component: RecommendDaily
+        }
+      ]
     },
     {
       path: '/radio',
-      component: radio
+      component: Radio
     },
     {
       path: '/playlist',
-      component: playlist
+      component: Playlist
     },
     {
       path: '/rank',
-      component: rank
+      component: Rank
     }
   ]
 });

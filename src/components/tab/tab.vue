@@ -24,9 +24,9 @@
   .tab
     display flex
     width 100%
-    background $color-background
+    background $color-background-l
     font-size $font-size-medium
-    line-height 30px
+    line-height 35px
     .tab-item
       flex 1
       text-align center
