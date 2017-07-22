@@ -20,7 +20,7 @@
   @import "~common/stylus/variable"
   .headers
     width 100%
-    background $color-background
+    background $color-background-l
     .status-bar
       height 10px
     .nav

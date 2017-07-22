@@ -3,7 +3,7 @@ bg-image($url)
   background-image: url($url + "@2x.png")
   @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
     background-image: url($url + "@3x.png")
-  
+
 border-1px($color)
   position: relative
   &:after
@@ -14,3 +14,11 @@ border-1px($color)
     width: 100%
     border-top: 1px solid $color
     content: ' '
+
+text-ellipsis($line-height, $max-height)
+  position relative
+  line-height $line-height
+  max-height $max-height
+  overflow hidden
+    
+    

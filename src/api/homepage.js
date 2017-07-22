@@ -21,3 +21,38 @@ export function getRecommendPicList() {
     }
   ];
 }
+
+export function getMockList() {
+  return {
+    title: '歌单',
+    data: [
+      {
+        id: 0,
+        pic: 'http://p1.music.126.net/0ZCqzSaW2ZLGI47tiAuKmg==/18992963858451539.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp',
+        text: '【 天堂中的歌声丨那些英年早逝的歌手们 〗'
+      }, {
+        id: 1,
+        pic: 'http://p1.music.126.net/0ZCqzSaW2ZLGI47tiAuKmg==/18992963858451539.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp',
+        text: '【 天堂中的歌声丨那些英年早逝的歌手们 〗'
+      }, {
+        id: 2,
+        pic: 'http://p1.music.126.net/0ZCqzSaW2ZLGI47tiAuKmg==/18992963858451539.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp',
+        text: '【 天堂中的歌声丨那些英年早逝的歌手们 〗'
+      }, {
+        id: 3,
+        pic: 'http://p1.music.126.net/0ZCqzSaW2ZLGI47tiAuKmg==/18992963858451539.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp',
+        text: '【 天堂中的歌声丨那些英年早逝的歌手们 〗'
+      },
+      {
+        id: 4,
+        pic: 'http://p1.music.126.net/0ZCqzSaW2ZLGI47tiAuKmg==/18992963858451539.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp',
+        text: '【 天堂中的歌声丨那些英年早逝的歌手们 〗'
+      }, {
+        id: 5,
+        pic: 'http://p1.music.126.net/0ZCqzSaW2ZLGI47tiAuKmg==/18992963858451539.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp',
+        text: '【 天堂中的歌声丨那些英年早逝的歌手们 〗'
+      }
+    ]
+  }
+    ;
+}

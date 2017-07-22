@@ -1,7 +1,8 @@
 <template>
   <div class="recommend">
-    <div class="recommend-content">
-      <div class="slider-wrapper">
+
+    <scroll ref="scroll" :data="mockData" class="recommend-content">
+      <div v-if="picList" class="slider-wrapper">
         <slider class="recommend-content">
           <div v-for="item in picList">
             <img :src="item.src" alt="">
@@ -11,20 +12,53 @@
       <div class="subnav-wrapper">
         <subnav></subnav>
       </div>
-    </div>
+      <div class="list-wrapper">
+        <list :data="mockData"></list>
+        <list :data="mockData"></list>
+        <list :data="mockData"></list>
+        <list :data="mockData"></list>
+      </div>
+    </scroll>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import Slider from 'base/slider/slider';
+  import Scroll from 'base/scroll/scroll';
+  import List from 'base/list/list';
   import Subnav from 'components/subnav/subnav';
-  import {getRecommendPicList} from 'api/homepage';
+  import axios from 'axios';
   export default {
+    data() {
+      return {
+        picList: [],
+        mockData: {}
+      };
+    },
     created() {
-      this.picList = getRecommendPicList();
+      this._getRecommendPicList();
+      this._getMockList();
     },
     components: {
-      Slider, Subnav
+      Slider, Subnav, Scroll, List
+    },
+    methods: {
+      _getRecommendPicList() {
+        axios.get('/api/getRecommendPicList').then((res) => {
+          this.picList = res.data;
+        });
+      },
+      _getMockList() {
+        axios.get('/api/getMockData').then((res) => {
+          this.mockData = res.data;
+          this.refresh();
+        });
+      },
+      refresh() {
+        if (this.$refs.scroll) {
+          this.$refs.scroll.refresh();
+        }
+      }
     }
   };
 </script>

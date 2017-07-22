@@ -39,7 +39,7 @@
       .item-link
         width 100%
         line-height 80px
-        font-size 30px
+        font-size 25px
         color $color-text
         &:before
           position relative
@@ -49,7 +49,7 @@
       .text
         position relative
         top -5px
-        font-size $font-size-medium
+        font-size $font-size-small
       .today
         position absolute
         top 0

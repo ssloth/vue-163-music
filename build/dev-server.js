@@ -14,38 +14,51 @@ var webpackConfig = process.env.NODE_ENV === 'testing'
   ? require('./webpack.prod.conf')
   : require('./webpack.dev.conf')
 
+var axios = require('axios')
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // automatically open browser, if not set will be false
-var autoOpenBrowser = !!config.dev.autoOpenBrowser
+var autoOpenBrowser = !!config.dev.autoOpenBrowser;
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
-var proxyTable = config.dev.proxyTable
+var proxyTable = config.dev.proxyTable;
+var app = express();
+var apiRouter = express.Router();
 
-var app = express()
-var compiler = webpack(webpackConfig)
+var data = require('../mock.json');
+var picList = data.getRecommendPicList;
+var mockData = data.getMockData;
+apiRouter.get('/getRecommendPicList', function(req, res) {
+  res.json(picList)
+});
+apiRouter.get('/getMockData', function(req, res) {
+  res.json(mockData)
+});
+app.use('/api', apiRouter);
 
+var compiler = webpack(webpackConfig);
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
   quiet: true
-})
+});
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {
-  log: () => {}
+  log: () => {
+  }
 })
 // force page reload when html-webpack-plugin template changes
-compiler.plugin('compilation', function (compilation) {
-  compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
-    hotMiddleware.publish({ action: 'reload' })
+compiler.plugin('compilation', function(compilation) {
+  compilation.plugin('html-webpack-plugin-after-emit', function(data, cb) {
+    hotMiddleware.publish({action: 'reload'})
     cb()
   })
 })
 
 // proxy api requests
-Object.keys(proxyTable).forEach(function (context) {
+Object.keys(proxyTable).forEach(function(context) {
   var options = proxyTable[context]
   if (typeof options === 'string') {
-    options = { target: options }
+    options = {target: options}
   }
   app.use(proxyMiddleware(options.filter || context, options))
 })

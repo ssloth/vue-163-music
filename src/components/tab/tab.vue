@@ -27,6 +27,7 @@
     background $color-background-l
     font-size $font-size-medium
     line-height 35px
+    box-shadow 1px 2px 5px $color-background-d
     .tab-item
       flex 1
       text-align center
