@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86787e2f-5da4-4bff-bed2-7e9053181a5d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/playlist.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/smallNewbie.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/smallNewbie.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/screenshot/dome.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/dev-server.js" afterPath="$PROJECT_DIR$/build/dev-server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/config.js" afterPath="$PROJECT_DIR$/src/api/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/homepage.js" afterPath="$PROJECT_DIR$/src/api/homepage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/list/list.vue" afterPath="$PROJECT_DIR$/src/base/list/list.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/headers/headers.vue" afterPath="$PROJECT_DIR$/src/components/headers/headers.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/recommend/recommend.vue" afterPath="$PROJECT_DIR$/src/components/recommend/recommend.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tab/tab.vue" afterPath="$PROJECT_DIR$/src/components/tab/tab.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store/state.js" afterPath="$PROJECT_DIR$/src/store/state.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/api/jsonp.js" afterPath="$PROJECT_DIR$/src/common/js/jsonp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="music-app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,15 +29,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="recommend.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="recommend.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/recommend/recommend.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
+            <state relative-caret-position="-33">
               <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
               <folding>
                 <element signature="n#div#1;n#scroll#0;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="e#649#689#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor>
+                <js_state />
+              </second_editor>
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="78">
+                <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -153,6 +170,7 @@
         <option value="$PROJECT_DIR$/src/components/headers/headers.vue" />
         <option value="$PROJECT_DIR$/src/components/tab/tab.vue" />
         <option value="$PROJECT_DIR$/src/components/recommend/recommend.vue" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -226,15 +244,15 @@
     <property name="editor.config.accepted" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="I:\music-app\static\css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="I:\vue-163-music\screenshot" />
       <recent name="I:\vue-163-music\src\common\js" />
       <recent name="I:\vue-163-music\src\base" />
       <recent name="I:\vue-163-music\src\common\stylus" />
       <recent name="I:\vue-163-music\src\common\fonts" />
-      <recent name="I:\vue-163-music\src\base\slider" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="I:\music-app\static\css" />
     </key>
   </component>
   <component name="RunManager">
@@ -316,7 +334,7 @@
       <workItem from="1500732210217" duration="133000" />
       <workItem from="1500779555496" duration="1046000" />
       <workItem from="1500797061611" duration="1853000" />
-      <workItem from="1500878496861" duration="8642000" />
+      <workItem from="1500878496861" duration="9500000" />
     </task>
     <task id="LOCAL-00001" summary="还在初始化项目，并优化了一下目录">
       <created>1500286385659</created>
@@ -353,11 +371,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500732322134</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="爬取了网易爸爸的html解析成json...暂时只找到了首页推荐歌单列表..">
+      <created>1500895401553</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1500895401553</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56914000" />
+    <option name="totallyTimeSpent" value="57772000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -400,14 +425,14 @@
     <MESSAGE value="完成轮播图" />
     <MESSAGE value="subnav" />
     <MESSAGE value="recommend页面.找不到接口，暂时使用模拟数据" />
-    <option name="LAST_COMMIT_MESSAGE" value="recommend页面.找不到接口，暂时使用模拟数据" />
+    <MESSAGE value="爬取了网易爸爸的html解析成json...暂时只找到了首页推荐歌单列表.." />
+    <option name="LAST_COMMIT_MESSAGE" value="爬取了网易爸爸的html解析成json...暂时只找到了首页推荐歌单列表.." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/contents/contents.vue" />
     <entry file="file://$PROJECT_DIR$/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -605,6 +630,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
           <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -619,6 +645,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-289">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -749,12 +776,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/recommend/recommend.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
+        <state relative-caret-position="-33">
           <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
           <folding>
             <element signature="n#div#1;n#scroll#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="e#649#689#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor>
+            <js_state />
+          </second_editor>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="78">
+            <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
