@@ -1,7 +1,6 @@
 <template>
   <div class="recommend">
-
-    <scroll ref="scroll" :data="mockData" class="recommend-content">
+    <scroll ref="scroll" :data="homeRecommendPlaylistList" class="recommend-content">
       <div v-if="picList" class="slider-wrapper">
         <slider class="recommend-content">
           <div v-for="item in picList">
@@ -13,10 +12,8 @@
         <subnav></subnav>
       </div>
       <div class="list-wrapper">
-        <list :data="mockData"></list>
-        <list :data="mockData"></list>
-        <list :data="mockData"></list>
-        <list :data="mockData"></list>
+        <list :data="homeRecommendPlaylistList"></list>
+        <list :data="homeRecommendPlaylistList"></list>
       </div>
     </scroll>
   </div>
@@ -32,12 +29,12 @@
     data() {
       return {
         picList: [],
-        mockData: {}
+        homeRecommendPlaylistList: {}
       };
     },
     created() {
       this._getRecommendPicList();
-      this._getMockList();
+      this._getHomeRecommendPlaylistList();
     },
     components: {
       Slider, Subnav, Scroll, List
@@ -48,11 +45,23 @@
           this.picList = res.data;
         });
       },
-      _getMockList() {
-        axios.get('/api/getMockData').then((res) => {
-          this.mockData = res.data;
+      _getHomeRecommendPlaylistList() {
+        axios.get('/api/homepageData').then((res) => {
+          this.homeRecommendPlaylistList = this._PlaylistFilter(res.data);
           this.refresh();
         });
+      },
+      _PlaylistFilter(data) {
+        let ret = {
+          title: '推荐歌单',
+          list: []
+        };
+        data.data.HomeRecommend.data._list.forEach((items) => {
+          items.forEach((item) => {
+            ret.list.push(item);
+          });
+        });
+        return ret;
       },
       refresh() {
         if (this.$refs.scroll) {

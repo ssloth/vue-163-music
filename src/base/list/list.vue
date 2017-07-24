@@ -6,8 +6,8 @@
     <div class="content">
       <ul class="item-list">
         <li class="item" v-for="item in data.list">
-          <img class="img" :src="item.pic">
-          <p class="text">{{item.text}}</p>
+          <img class="img" :src="item.picUrl">
+          <p class="text">{{item.name}}</p>
         </li>
       </ul>
     </div>

@@ -34,5 +34,4 @@
         flex 1
         .item
           padding 0 20px
-
 </style>
