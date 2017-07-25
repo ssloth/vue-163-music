@@ -6,8 +6,8 @@ import Rank from 'components/rank/rank';
 import Playlist from 'components/playlist/playlist';
 import Fm from 'components/fm/fm';
 import HotRank from 'components/hotRank/hotRank';
-import RecommendDaily from 'components/recommendDaily/recommendDaily';
-
+import RecommendDaily from 'components/recommend-daily/recommend-daily';
+import playlistDetail from 'components/playlist-detail/playlist-detail';
 Vue.use(Router);
 
 export default new Router({
@@ -28,8 +28,11 @@ export default new Router({
           path: '/recommend/HotRank',
           component: HotRank
         }, {
-          path: '/recommend/recommendDaily',
+          path: '/recommend/recommend-daily',
           component: RecommendDaily
+        }, {
+          path: ':id',
+          component: playlistDetail
         }
       ]
     },

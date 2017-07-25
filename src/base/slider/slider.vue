@@ -43,7 +43,7 @@
       },
       speed: {
         type: Number,
-        default: 1500
+        default: 800
       },
       interval: {
         type: Number,

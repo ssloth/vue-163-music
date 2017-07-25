@@ -12,7 +12,7 @@
         <subnav></subnav>
       </div>
       <div class="list-wrapper">
-        <list :data="homeRecommendPlaylistList"></list>
+        <list :data="homeRecommendPlaylistList" @select="selectPlaylist"></list>
         <list :data="homeRecommendPlaylistList"></list>
       </div>
     </scroll>
@@ -25,6 +25,7 @@
   import List from 'base/list/list';
   import Subnav from 'components/subnav/subnav';
   import axios from 'axios';
+  import {mapMutations} from 'vuex';
   export default {
     data() {
       return {
@@ -40,6 +41,13 @@
       Slider, Subnav, Scroll, List
     },
     methods: {
+      selectPlaylist(playlist) {
+        console.log(playlist);
+        this.$router.push({
+          path: `/recommend/${playlist.id}`
+        });
+        this.setPlaylist(playlist);
+      },
       _getRecommendPicList() {
         axios.get('/api/getRecommendPicList').then((res) => {
           this.picList = res.data;
@@ -67,7 +75,10 @@
         if (this.$refs.scroll) {
           this.$refs.scroll.refresh();
         }
-      }
+      },
+      ...mapMutations({
+        setPlaylist: 'SET_PLAYLIST'
+      })
     }
   };
 </script>

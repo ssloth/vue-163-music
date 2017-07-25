@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <ul class="item-list">
-        <li class="item" v-for="item in data.list">
+        <li @click="selectItem(item)" class="item" v-for="item in data.list">
           <img class="img" :src="item.picUrl">
           <p class="text">{{item.name}}</p>
         </li>
@@ -26,6 +26,11 @@
           };
         }
       }
+    },
+    methods: {
+      selectItem(item) {
+        this.$emit('select', item);
+      }
     }
   };
 </script>
@@ -41,7 +46,7 @@
       .title
         padding-left 8px
         font-weight 500
-        font-size $font-size-medium-x
+        font-size $font-size-medium
         border-left 2px solid $color-active
     .content
       position relative

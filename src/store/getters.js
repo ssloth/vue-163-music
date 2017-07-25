@@ -1,3 +1,1 @@
-/**
- * Created by smallNewbie on 2017/7/17.
- */
+export const playlist = state => state.playlist;
