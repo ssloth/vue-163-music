@@ -16,6 +16,7 @@
         <list :data="homeRecommendPlaylistList"></list>
       </div>
     </scroll>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -42,7 +43,6 @@
     },
     methods: {
       selectPlaylist(playlist) {
-        console.log(playlist);
         this.$router.push({
           path: `/recommend/${playlist.id}`
         });

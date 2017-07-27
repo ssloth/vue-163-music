@@ -1,2 +1,4 @@
-export const CODE = 200;
-export const commonParams = {};
+export const ERR_OK = 200;
+export const commonParams = {
+  format: 'json'
+};

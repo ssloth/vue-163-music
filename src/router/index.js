@@ -5,7 +5,7 @@ import Radio from 'components/radio/radio';
 import Rank from 'components/rank/rank';
 import Playlist from 'components/playlist/playlist';
 import Fm from 'components/fm/fm';
-import HotRank from 'components/hotRank/hotRank';
+import HotRank from 'components/hotrank/hotrank';
 import RecommendDaily from 'components/recommend-daily/recommend-daily';
 import playlistDetail from 'components/playlist-detail/playlist-detail';
 Vue.use(Router);

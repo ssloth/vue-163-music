@@ -4,7 +4,11 @@ export default function jsonp(url, data, option) {
   return new Promise((resolve, reject) => {
     originJsonp(url, option, (err, data) => {
       if (!err) {
-        resolve(data);
+        if (typeof (data) === 'string') {
+          resolve(JSON.parse(data));
+        } else {
+          resolve(data);
+        }
       } else {
         reject(err);
       }
