@@ -24,8 +24,6 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser;
 var proxyTable = config.dev.proxyTable;
 var app = express();
 var apiRouter = express.Router();
-
-
 var data = require('../mock.json');
 var picList = data.getRecommendPicList;
 var mockData = data.getMockData;
@@ -55,7 +53,7 @@ apiRouter.get('/homepageData', function(req, res) {
     console.error(e)
   })
 });
-app.use('/api', apiRouter);
+app.use('/api163', apiRouter);
 
 var compiler = webpack(webpackConfig);
 var devMiddleware = require('webpack-dev-middleware')(compiler, {

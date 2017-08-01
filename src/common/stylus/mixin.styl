@@ -15,10 +15,10 @@ border-1px($color)
     border-top: 1px solid $color
     content: ' '
 
-text-ellipsis($line-height, $max-height)
-  position relative
-  line-height $line-height
-  max-height $max-height
+text-ellipsis()
+  display block
   overflow hidden
-    
+  white-space nowrap
+  text-overflow ellipsis
+  content ''
     

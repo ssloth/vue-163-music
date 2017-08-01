@@ -49,12 +49,12 @@
         this.setPlaylist(playlist);
       },
       _getRecommendPicList() {
-        axios.get('/api/getRecommendPicList').then((res) => {
+        axios.get('/api163/getRecommendPicList').then((res) => {
           this.picList = res.data;
         });
       },
       _getHomeRecommendPlaylistList() {
-        axios.get('/api/homepageData').then((res) => {
+        axios.get('/api163/homepageData').then((res) => {
           this.homeRecommendPlaylistList = this._PlaylistFilter(res.data);
           this.refresh();
         });
