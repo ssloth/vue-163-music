@@ -57,6 +57,7 @@
         this.scroll && this.scroll.disable();
       },
       refresh() {
+        console.log(this.scroll);
         this.scroll && this.scroll.refresh();
       },
       scrollTo() {
@@ -75,5 +76,6 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-
+  .scroll
+    overflow hidden
 </style>

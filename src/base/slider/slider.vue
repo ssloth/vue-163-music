@@ -33,7 +33,7 @@
           return;
         }
         this._setSliderWidth(true);
-        this.silder.refresh();
+        this.$refs.silder.refresh();
       });
     },
     props: {
