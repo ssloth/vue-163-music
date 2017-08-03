@@ -1,6 +1,5 @@
 <template>
   <div class="headers">
-    <div class="status-bar"></div>
     <div class="nav">
       <div class="side"><i class="fa fa-bars fa-lg"></i></div>
       <div class="center">
@@ -21,8 +20,6 @@
   .headers
     width 100%
     background $color-background-l
-    .status-bar
-      height 10px
     .nav
       display flex
       line-height 50px

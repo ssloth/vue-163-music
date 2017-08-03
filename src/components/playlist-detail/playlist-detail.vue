@@ -2,6 +2,9 @@
   <transition name="slider">
     <div class="playlist-detail">
       <div class="fixed-header">
+        <div class="background">
+          <img :src="playlistDetail.coverImgUrl" width="100%" height="100%">
+        </div>
         <div class="back">
           <i class="fa fa-arrow-left"></i>
         </div>
@@ -36,15 +39,15 @@
           </div>
           <div class="bar">
             <div class="item">
-              <i class="fa fa-lg fa-download "></i>
+              <i class="fa fa-lg fa-folder-o"></i>
               <div>{{playlistDetail.subscribedCount}}</div>
             </div>
             <div class="item">
-              <i class="fa fa-lg fa-download "></i>
+              <i class="fa fa-lg fa-commenting-o"></i>
               <div>{{playlistDetail.commentCount}}</div>
             </div>
             <div class="item">
-              <i class="fa fa-lg fa-download "></i>
+              <i class="fa fa-lg fa-share-alt"></i>
               <div>{{playlistDetail.shareCount}}</div>
             </div>
             <div class="item">
@@ -55,8 +58,8 @@
         </div>
         <div class="song-list-wrapper">
           <div class="ctrl-bar">
-            <div class="play-icon"></div>
-            <div v-if="playlistDetail.songs" class="text">播放全部共({{playlistDetail.songs.length}})首</div>
+            <div class="play-icon"><i class="fa fa-play-circle-o fa-lg"></i></div>
+            <div v-if="playlistDetail.songs" class="text">播放全部共<span>({{playlistDetail.songs.length}})首</span></div>
             <div class="multi-select"></div>
           </div>
           <ul class="song-list" v-if="playlistDetail.songs">
@@ -68,6 +71,9 @@
                 <div class="name">{{song.name}}</div>
                 <div class="description">{{song.description}}</div>
               </div>
+              <div class="ctrl">
+                <i></i>
+              </div>
             </li>
           </ul>
         </div>
@@ -78,6 +84,7 @@
 
 <script type="text/ecmascript-6">
   import scroll from 'base/scroll/scroll';
+  import statusBar from 'base/status-bar/status-bar';
   import {createPlaylist} from 'common/js/playlist';
   import {ERR_OK} from 'api/config';
   import {mapGetters} from 'vuex';
@@ -93,7 +100,7 @@
       ])
     },
     components: {
-      scroll
+      scroll, statusBar
     },
     created() {
       setTimeout(() => {
@@ -143,11 +150,23 @@
     .fixed-header
       position fixed
       display flex
+      padding-top 10px
       top 0
       left 0
       width 100%
-      padding 10px 0
-      height 60px
+      height 40px
+      color $color-text-lll
+      overflow hidden
+      .background
+        position absolute
+        z-index -1
+        top -190px
+        left 0
+        height 250px
+        width 100%
+        opacity 0
+        img
+          filter blur(20px)
       .back
         flex 40px 0 0
         text-align center
@@ -155,13 +174,13 @@
       .description
         flex 1 0 0
         overflow hidden
+        padding 5px 0
         .title
-          line-height 25px
-          font-size $font-size-medium
+          font-size $font-size-medium-x
+          line-height 20px
         .text
           height 10px
-          line-height 10px
-          font-size 8px
+          font-size $font-size-small-s
           text-ellipsis()
       .search
         flex 40px 0 0
@@ -170,7 +189,6 @@
     .header-wrapper
       padding-top 60px
       width 100%
-      color $color-text-lll
       .background
         position absolute
         overflow hidden
@@ -192,7 +210,7 @@
           padding 0 20px
           .name
             padding-bottom 20px
-            font-size $font-size-large
+            font-size $font-size-medium-x
           .creator
             display flex
             align-items center
@@ -201,7 +219,7 @@
               height 30px
               border-radius 50%
             .nickname
-              font-size $font-size-medium-x
+              font-size $font-size-small
               margin-left 10px
       .bar
         display flex
@@ -212,26 +230,41 @@
           line-height 25px
 
     .song-list-wrapper
+      color $color-text-ll
       .ctrl-bar
         display flex
+        line-height 40px
         .play-icon
-          line-height 40px
           text-align center
           flex 50px 0 0
         .text
           flex 1 0 0
+          span
+            color $color-text
         .multi-select
           line-height 40px
           flex 50px 0 0
       .song-list
+        font-weight 200
         .song
           display flex
+          align-items center
           .index
-            line-height 40px
-            text-align center
             flex 50px 0 0
+            line-height 50px
+            text-align center
           .text
             flex 1 0 0
+            text-ellipsis()
+            .name
+              font-size $font-size-medium-x
+              line-height 35px
+            .description
+              font-size $font-size-small
+              color $color-text
+              line-height 15px
+          .ctrl
+            flex 50px 0 0
 
   .slider-enter-active, .slider-leave-active
     transition all 0.2s

@@ -1,6 +1,7 @@
 <!--suppress ALL -->
 <template>
   <div id="app">
+    <status-bar></status-bar>
     <headers></headers>
     <tab></tab>
     <keep-alive>
@@ -12,10 +13,11 @@
 <script type="text/ecmascript-6">
   import Headers from 'components/headers/headers';
   import Tab from 'components/tab/tab';
+  import statusBar from 'base/status-bar/status-bar.vue';
 
   export default {
     components: {
-      Headers, Tab
+      Headers, Tab, statusBar
     }
   };
 </script>

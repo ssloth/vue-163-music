@@ -78,4 +78,5 @@
 <style lang="stylus" rel="stylesheet/stylus">
   .scroll
     overflow hidden
+    height 100%
 </style>
