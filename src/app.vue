@@ -7,17 +7,19 @@
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
+    <player></player>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import Headers from 'components/headers/headers';
   import Tab from 'components/tab/tab';
-  import statusBar from 'base/status-bar/status-bar.vue';
+  import Player from 'components/player/player';
+  import StatusBar from 'base/status-bar/status-bar';
 
   export default {
     components: {
-      Headers, Tab, statusBar
+      Headers, Tab, StatusBar, Player
     }
   };
 </script>

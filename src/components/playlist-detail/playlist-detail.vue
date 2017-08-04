@@ -69,7 +69,11 @@
             <div class="multi-select"></div>
           </div>
           <ul class="song-list" v-if="playlistDetail.songs">
-            <li class="song" v-for="(song,index) in playlistDetail.songs">
+            <li
+              class="song"
+              v-for="(song,index) in playlistDetail.songs"
+              @click="selectItem(song,index)"
+            >
               <div class="index">
                 {{index+1}}
               </div>
@@ -93,8 +97,7 @@
   import statusBar from 'base/status-bar/status-bar';
   import {createPlaylist} from 'common/js/playlist';
   import {ERR_OK} from 'api/config';
-  import {mapGetters} from 'vuex';
-
+  import {mapGetters, mapActions} from 'vuex';
   const HEADER_HEIGHT = 200;
   export default {
     data() {
@@ -124,8 +127,14 @@
           this.$refs.scroll.refresh();
         }
       },
+      selectItem(item, index) {
+        this.selectPlay({
+          list: this.playlistDetail.songs,
+          index: index
+        });
+      },
       _headerAnimation(y) {
-        if (y > 0 && y < HEADER_HEIGHT) {
+        if (y > 0 && y < HEADER_HEIGHT * 2) {
           this.$refs.fixedHeaderBackground.style.opacity = y / HEADER_HEIGHT > 0.95 ? 1 : y / HEADER_HEIGHT;
           if (y > 20) {
             this.$refs.marquee.innerText = this.playlistDetail.name;
@@ -149,7 +158,10 @@
             }, 500);
           }
         });
-      }
+      },
+      ...mapActions([
+        'selectPlay'
+      ])
     }
   };
 </script>
