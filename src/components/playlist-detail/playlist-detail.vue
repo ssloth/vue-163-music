@@ -2,20 +2,26 @@
   <transition name="slider">
     <div class="playlist-detail">
       <div class="fixed-header">
-        <div class="background">
+        <div ref="fixedHeaderBackground" class="background">
           <img :src="playlistDetail.coverImgUrl" width="100%" height="100%">
         </div>
         <div class="back">
           <i class="fa fa-arrow-left"></i>
         </div>
         <div class="description">
-          <h2 class="title">歌单</h2>
+          <h2 ref="marquee" class="title">歌单</h2>
           <span class="text">{{playlistDetail.description}}</span>
         </div>
         <div class="search"></div>
         <div class="menu"></div>
       </div>
-      <scroll ref="scroll" :listenScroll="listenScroll" :data="playlistDetail">
+      <scroll
+        @scroll="scroll"
+        ref="scroll"
+        :listenScroll="listenScroll"
+        :data="playlistDetail"
+        :probeType="probeType"
+      >
         <div class="header-wrapper">
           <div class="background">
             <img :src="playlistDetail.coverImgUrl" width="100%" height="100%">
@@ -88,6 +94,8 @@
   import {createPlaylist} from 'common/js/playlist';
   import {ERR_OK} from 'api/config';
   import {mapGetters} from 'vuex';
+
+  const HEADER_HEIGHT = 200;
   export default {
     data() {
       return {
@@ -103,12 +111,29 @@
       scroll, statusBar
     },
     created() {
-      setTimeout(() => {
-        this.listenScroll = true;
-        this._getPlaylistDetail();
-      }, 50);
+      this.listenScroll = true;
+      this.probeType = 3;
+      this._getPlaylistDetail();
     },
     methods: {
+      scroll(pos) {
+        this._headerAnimation(-pos.y);
+      },
+      refresh() {
+        if (this.$refs.scroll) {
+          this.$refs.scroll.refresh();
+        }
+      },
+      _headerAnimation(y) {
+        if (y > 0 && y < HEADER_HEIGHT) {
+          this.$refs.fixedHeaderBackground.style.opacity = y / HEADER_HEIGHT > 0.95 ? 1 : y / HEADER_HEIGHT;
+          if (y > 20) {
+            this.$refs.marquee.innerText = this.playlistDetail.name;
+          } else {
+            this.$refs.marquee.innerText = '歌单';
+          }
+        }
+      },
       _getPlaylistDetail() {
         if (!this.playlist.id) {
           this.$router.push('/recommend');
@@ -124,12 +149,6 @@
             }, 500);
           }
         });
-      },
-      refresh() {
-        console.log(this.$refs.scroll);
-        if (this.$refs.scroll) {
-          this.$refs.scroll.refresh();
-        }
       }
     }
   };
@@ -145,17 +164,17 @@
     left 0
     width 100%
     height 100%
-    color $color-text-ll
+    color $color-text-lll
     background $color-background
     .fixed-header
       position fixed
       display flex
+      z-index 1000
       padding-top 10px
       top 0
       left 0
       width 100%
       height 40px
-      color $color-text-lll
       overflow hidden
       .background
         position absolute
@@ -165,8 +184,17 @@
         height 250px
         width 100%
         opacity 0
+        &:after
+          position absolute
+          content ""
+          display block
+          top 0
+          width 100%
+          height 100%
+          background rgba(0, 0, 0, 1)
+          z-index -2
         img
-          filter blur(20px)
+          filter blur(50px)
       .back
         flex 40px 0 0
         text-align center
@@ -179,7 +207,6 @@
           font-size $font-size-medium-x
           line-height 20px
         .text
-          height 10px
           font-size $font-size-small-s
           text-ellipsis()
       .search
@@ -272,5 +299,5 @@
 
   .slider-enter, .slider-leave-to
     transform translate3d(0, 100%, 0)
-    opacity 0.5
+    opacity 0
 </style>

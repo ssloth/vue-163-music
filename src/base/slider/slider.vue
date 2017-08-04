@@ -27,14 +27,14 @@
         if (this.autoPlay) {
           this._play();
         }
+        window.addEventListener('resize', () => {
+          if (!this.slider) {
+            return;
+          }
+          this._setSliderWidth(true);
+          this.$refs.silder.refresh();
+        });
       }, 20);
-      window.addEventListener('resize', () => {
-        if (!this.slider) {
-          return;
-        }
-        this._setSliderWidth(true);
-        this.$refs.silder.refresh();
-      });
     },
     props: {
       loop: {
