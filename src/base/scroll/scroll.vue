@@ -32,7 +32,7 @@
     mounted() {
       setTimeout(() => {
         this._initScroll();
-      }, 200);
+      }, 20);
     },
     methods: {
       _initScroll() {
@@ -68,7 +68,9 @@
     },
     watch: {
       data() {
-        this.refresh();
+        setTimeout(() => {
+          this.refresh();
+        }, 50);
       }
     }
   };

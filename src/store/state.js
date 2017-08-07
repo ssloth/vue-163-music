@@ -3,9 +3,10 @@ const state = {
   player: {
     playing: false,
     fullScreen: false,
-    playlist: [],
+    song: {},
     randomPlaylist: [],
-    currentIndex: -1,
+    currentPlaylist: [],
+    currentIndex: 0,
     mode: 0
   }
 };

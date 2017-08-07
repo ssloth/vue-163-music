@@ -32,7 +32,7 @@
             return;
           }
           this._setSliderWidth(true);
-          this.$refs.silder.refresh();
+          this.slider.refresh();
         });
       }, 20);
     },

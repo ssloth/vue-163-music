@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import * as actions from './mutation-types';
+import * as actions from './actives';
 import * as getters from './getters';
 import state from './state';
 import mutations from './mutations';

@@ -7,5 +7,6 @@ export const mode = state => state.player.mode;
 export const currentIndex = state => state.player.currentIndex;
 
 export const song = (state) => {
-  return state.player.playlist[state.player.currentIndex] || {};
+  console.log(state.player);
+  return state.player.currentPlaylist[state.player.currentIndex] || {};
 };

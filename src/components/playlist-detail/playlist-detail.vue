@@ -5,7 +5,7 @@
         <div ref="fixedHeaderBackground" class="background">
           <img :src="playlistDetail.coverImgUrl" width="100%" height="100%">
         </div>
-        <div class="back">
+        <div @click="back" class="back">
           <i class="fa fa-arrow-left"></i>
         </div>
         <div class="description">
@@ -38,8 +38,9 @@
               </div>
               <div class="creator" v-if="playlistDetail.creator">
                 <img class="avatar" :src="playlistDetail.creator.avatarUrl" alt="" width="100">
-                <span class="nickname">{{playlistDetail.creator.nickname}} <i class="fa fa-angle-right fa-lg"
-                                                                              aria-hidden="true"></i></span>
+                <span class="nickname">{{playlistDetail.creator.nickname}}
+                  <i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>
+                </span>
               </div>
             </div>
           </div>
@@ -133,9 +134,16 @@
           index: index
         });
       },
+      back() {
+        this.$router.push('/recommend');
+      },
       _headerAnimation(y) {
-        if (y > 0 && y < HEADER_HEIGHT * 2) {
-          this.$refs.fixedHeaderBackground.style.opacity = y / HEADER_HEIGHT > 0.95 ? 1 : y / HEADER_HEIGHT;
+        if (y < 0) {
+          this.$refs.fixedHeaderBackground.style.opacity = 0;
+          return;
+        }
+        if (y > 0) {
+          this.$refs.fixedHeaderBackground.style.opacity = y / HEADER_HEIGHT > 0.9 ? 1 : y / HEADER_HEIGHT;
           if (y > 20) {
             this.$refs.marquee.innerText = this.playlistDetail.name;
           } else {
@@ -206,6 +214,7 @@
           background rgba(0, 0, 0, 1)
           z-index -2
         img
+
           filter blur(50px)
       .back
         flex 40px 0 0
@@ -218,6 +227,7 @@
         .title
           font-size $font-size-medium-x
           line-height 20px
+          text-ellipsis()
         .text
           font-size $font-size-small-s
           text-ellipsis()

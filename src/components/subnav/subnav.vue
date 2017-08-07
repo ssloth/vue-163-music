@@ -20,7 +20,6 @@
   export default {
     created() {
       this.today = new Date().getDate();
-      console.log(this.today);
     }
   };
 </script>
