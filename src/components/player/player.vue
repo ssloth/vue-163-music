@@ -7,7 +7,7 @@
           <img width="100%" height="100%" :src="songDetail.albumBlurPicUrl" alt="">
         </div>
         <div class="header">
-          <div class="back">
+          <div @click="back" class="back">
             <i class="fa fa-arrow-left"></i>
           </div>
           <div class="description">
@@ -16,12 +16,21 @@
           </div>
         </div>
         <div class="content">
-          <div class="content-wrapper">
-            <div class="cd-wrapper">
-              <div class="cd">
-                <img :src="songDetail.albumBlurPicUrl" alt="" class="image">
+          <div @click="shiftLcr" class="content-wrapper">
+            <transition name="shift">
+              <div v-show="!showLcr" class="cd-wrapper rotate" :class="{'paused':!playing}">
+                <div class="cd">
+                  <img :src="songDetail.albumBlurPicUrl" alt="" class="image">
+                </div>
               </div>
-            </div>
+            </transition>
+            <transition name="shift">
+              <div v-show="showLcr" class="lyric-wrapper">
+                <div class="lyric">
+                  <p v-for="(line,index) in songLyric.lines">{{line.txt}}</p>
+                </div>
+              </div>
+            </transition>
           </div>
         </div>
         <div class="footer">
@@ -51,8 +60,9 @@
 
 <script type="text/ecmascript-6">
   import {ERR_OK} from 'api/config';
-  import {mapGetters} from 'vuex';
+  import {mapGetters, mapMutations} from 'vuex';
   import {createSong} from 'common/js/song';
+  import Lyric from 'lyric-parser';
   export default {
     props: {},
     created() {
@@ -60,10 +70,18 @@
     },
     data() {
       return {
-        songDetail: {}
+        songDetail: {},
+        songLyric: {},
+        showLcr: false
       };
     },
     methods: {
+      back() {
+        this.setFullScreen(false);
+      },
+      shiftLcr() {
+        this.showLcr = !this.showLcr;
+      },
       _getSongDetail() {
         this.$http
           .get(`/api/song/detail/?id=${this.song.id}&ids=[${this.song.id}]`)
@@ -73,7 +91,24 @@
               this.songDetail = createSong(res.songs[0]);
             }
           });
-      }
+      },
+      _getSongLcr() {
+        this.$http
+          .get(`/api/song/lyric?os=pc&id=${this.song.id}&lv=-1&kv=-1&tv=-1`)
+          .then((res) => {
+            res = res.data;
+            if (res.code === ERR_OK) {
+              this.songLyric = new Lyric(res.lrc.lyric, this._lrcHandler);
+            }
+          });
+      },
+      _lrcHandler() {
+
+      },
+      ...mapMutations({
+        setFullScreen: 'SET_FULL_SCREEN',
+        setPlaying: 'SET_PLAYING'
+      })
     },
     computed: {
       ...mapGetters([
@@ -88,8 +123,8 @@
     },
     watch: {
       currentIndex() {
-        console.log(1);
         this._getSongDetail();
+        this._getSongLcr();
       }
     }
   };
@@ -98,10 +133,22 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~common/stylus/variable"
   @import "~common/stylus/mixin"
+  @keyframes rotating-animation {
+    from {
+      transform: rotate(0)
+    }
+    to {
+      transform: rotate(360deg)
+    }
+  }
+
   .player
+    color $color-text-ll
     background $color-background-l
     .normal-player
       position fixed
+      display flex
+      flex-direction column
       left 0
       right 0
       top 0
@@ -128,8 +175,11 @@
           filter blur(100px)
       .header
         display flex
-        height 50px
+        flex 50px 0 0
         width 100%
+        border-width 0 0 1px 0
+        border-style solid
+        border-color rgba(200, 200, 200, 0.3) $color-text rgba(200, 200, 200, 0.3)
         .back
           flex 40px 0 0
           text-align center
@@ -146,17 +196,45 @@
             font-size $font-size-small-s
             text-ellipsis()
       .content
-        height 100%
-        display flex
+        flex 1
+        overflow hidden
         .content-wrapper
-          align-items center
+          position relative
+          padding 80px 0
+          height 100%
           .cd-wrapper
+            position relative
             margin 0 auto
             width 80%
+            height 0
+            padding-top 80%
+            &.rotate
+              animation rotating-animation 15s linear infinite
+            &.paused
+              animation-play-state paused
             .cd
+              position absolute
+              top 0
+              left 0
+              height 100%
+              width 100%
+              background-size 100% 100%
+              background-image url("cd.png")
               img
-                width 100%
+                padding 15%
+                width 70%
+                height 70%
                 border-radius 50%
+          .lyric-wrapper
+            position absolute
+            top 80px
+            width 100%
+            .lyric
+              width 100%
+              text-align center
+              line-height 35px
+      .footer
+        flex 100px 0 0
     .mini-player
       position fixed
       display flex
@@ -196,5 +274,12 @@
 
   .slider-enter, .slider-leave-to
     transform translate3d(0, 100%, 0)
+    opacity 0
+
+  .shift-enter-active, .shift-leave-active
+    transition all 0.5s
+    opacity 1
+
+  .shift-enter, .shift-leave-to
     opacity 0
 </style>
