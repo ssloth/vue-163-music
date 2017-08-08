@@ -6,7 +6,7 @@
     <div class="content">
       <ul class="item-list">
         <li @click="selectItem(item)" class="item" v-for="item in data.list">
-          <img class="img" :src="item.picUrl">
+          <img class="img" v-lazy="item.picUrl">
           <p class="text">{{item.name}}</p>
         </li>
       </ul>

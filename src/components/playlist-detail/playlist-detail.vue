@@ -3,10 +3,10 @@
     <div class="playlist-detail">
       <div class="fixed-header">
         <div ref="fixedHeaderBackground" class="background">
-          <img :src="playlistDetail.coverImgUrl" width="100%" height="100%">
+          <img v-lazy="playlistDetail.coverImgUrl" width="100%" height="100%">
         </div>
         <div @click="back" class="back">
-          <i class="fa fa-arrow-left"></i>
+          <i class="icon-arrow-left"></i>
         </div>
         <div class="description">
           <h2 ref="marquee" class="title">歌单</h2>
@@ -24,7 +24,7 @@
       >
         <div class="header-wrapper">
           <div class="background">
-            <img :src="playlistDetail.coverImgUrl" width="100%" height="100%">
+            <img v-lazy="playlistDetail.coverImgUrl" width="100%" height="100%">
           </div>
           <div class="intro">
             <div class="left">
@@ -46,26 +46,26 @@
           </div>
           <div class="bar">
             <div class="item">
-              <i class="fa fa-lg fa-folder-o"></i>
+              <i class="icon-collection"></i>
               <div>{{playlistDetail.subscribedCount}}</div>
             </div>
             <div class="item">
-              <i class="fa fa-lg fa-commenting-o"></i>
+              <i class="icon-comments"></i>
               <div>{{playlistDetail.commentCount}}</div>
             </div>
             <div class="item">
-              <i class="fa fa-lg fa-share-alt"></i>
+              <i class="icon-share"></i>
               <div>{{playlistDetail.shareCount}}</div>
             </div>
             <div class="item">
-              <i class="fa fa-lg fa-download "></i>
+              <i class="icon-download"></i>
               <div>下载</div>
             </div>
           </div>
         </div>
         <div class="song-list-wrapper">
           <div class="ctrl-bar">
-            <div class="play-icon"><i class="fa fa-play-circle-o fa-lg"></i></div>
+            <div class="play-icon"><i class="icon-play"></i></div>
             <div v-if="playlistDetail.songs" class="text">播放全部共<span>({{playlistDetail.songs.length}})首</span></div>
             <div class="multi-select"></div>
           </div>
@@ -177,6 +177,21 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~common/stylus/variable";
   @import "~common/stylus/mixin";
+  @keyframes lazy-animation {
+    from {
+      opacity 0
+    }
+    to {
+      opacity 1
+    }
+  }
+  img[lazy=loading]{
+    animation lazy-animation 2s
+  }
+  img[lazy=loaded] {
+    animation lazy-animation 2s
+  }
+
   .playlist-detail
     position fixed
     z-index 100
@@ -214,10 +229,10 @@
           background rgba(0, 0, 0, 1)
           z-index -2
         img
-
           filter blur(50px)
       .back
         flex 40px 0 0
+        font-size $font-size-large-x
         text-align center
         line-height 40px
       .description
@@ -247,6 +262,7 @@
         height 250px
         z-index -1
         img
+          opacity 0.8
           filter blur(50px)
       .intro
         padding 0 20px
@@ -259,7 +275,7 @@
           padding 0 20px
           .name
             padding-bottom 20px
-            font-size $font-size-medium-x
+            font-size $font-size-medium
           .creator
             display flex
             align-items center
@@ -277,7 +293,9 @@
         .item
           flex 1
           line-height 25px
-
+          font-size $font-size-medium
+          i
+            font-size $font-size-large-x
     .song-list-wrapper
       color $color-text-ll
       .ctrl-bar
