@@ -5,6 +5,7 @@ vue仿写网易云音乐,前端新手上路,请老司机多给点关怀和建议
 
 ## 效果图
 ![](screenshot/dome.gif)
+![](screenshot/dome2.gif)
 ### 内核样式
 ![](screenshot/s1.png)
 ![](screenshot/s2.png)
