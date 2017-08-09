@@ -99,5 +99,7 @@
         overflow hidden
       .subnav-wrapper
         width 100%
+      .list-wrapper
+        padding-bottom 50px
 
 </style>

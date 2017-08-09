@@ -14,6 +14,10 @@
         type: Boolean,
         default: true
       },
+      deceleration: {
+        type: Number,
+        default: 0.005
+      },
       probeType: {
         type: Number,
         default: 1
@@ -25,6 +29,14 @@
         }
       },
       listenScroll: {
+        type: Boolean,
+        default: false
+      },
+      scrollStart: {
+        type: Boolean,
+        default: false
+      },
+      scrollEnd: {
         type: Boolean,
         default: false
       }
@@ -41,12 +53,28 @@
         }
         this.scroll = new BScroll(this.$refs.scroll, {
           click: this.click,
-          probeType: this.probeType
+          probeType: this.probeType,
+          deceleration: this.deceleration
         });
         if (this.listenScroll) {
           let me = this;
           this.scroll.on('scroll', (pos) => {
             me.$emit('scroll', pos);
+          });
+        }
+        if (this.scrollStart) {
+          let me = this;
+          this.scroll.on('scrollStart', (pos) => {
+            console.log(1);
+            me.$emit('scrollStart', pos);
+          });
+        }
+        if (this.scrollEnd) {
+          let me = this;
+          console.log(1);
+          this.scroll.on('scrollEnd', (pos) => {
+            console.log(1);
+            me.$emit('scrollEnd', pos);
           });
         }
       },
@@ -70,7 +98,7 @@
       data() {
         setTimeout(() => {
           this.refresh();
-        }, 50);
+        }, 1000);
       }
     }
   };

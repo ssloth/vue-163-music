@@ -26,14 +26,24 @@
             <transition name="shift">
               <div v-show="showLcr" class="lyric-wrapper">
                 <div class="background"></div>
-                <div class="line-wrapper">
+                <div v-show="scrolling" class="line-wrapper">
                   <i class="fa fa-play"></i>
                   <span class="line"></span>
                   <span class="time">01:22</span>
                 </div>
-                <scroll ref="scroll" :data="songLyric">
+                <scroll
+                  ref="lyricList"
+                  @scroll="scroll"
+                  @scrollStart="scrollStart "
+                  @scrollEnd="scrollEnd"
+                  :data="songLyric"
+                  :scrollEnd="true"
+                  :scrollStart="true"
+                  :listenScroll="true"
+                  :probeType="probeType">
                   <div class="lyric">
-                    <p :class="{current:currentLine===index}" v-for="(line,index) in songLyric.lines">{{line.txt}}</p>
+                    <p ref="lyricLine" :class="{current:currentLine===index}" v-for="(line,index) in songLyric.lines">
+                      {{line.txt}}</p>
                   </div>
                 </scroll>
               </div>
@@ -87,6 +97,8 @@
     <transition name="fade">
       <div v-show="footListShow" class="foot-list-background"></div>
     </transition>
+    <audio ref="audio" :src="songUrl" @play="ready" @error="error" @timeupdate="updateTime"
+           @ended="end"></audio>
   </div>
 </template>
 
@@ -100,17 +112,19 @@
   export default {
     props: {},
     created() {
-
+      this.probeType = 3;
     },
     components: {
       Scroll, FootList
     },
     data() {
       return {
+        scrolling: false,
         songDetail: {},
         songLyric: {},
+        songUrl: '',
         showLcr: false,
-        currentLine: 5,
+        currentLine: 0,
         footListShow: false
       };
     },
@@ -151,6 +165,23 @@
           this.setCurrentIndex(0);
         }
       },
+      ready() {
+      },
+      scroll(pos) {
+
+      },
+      scrollStart() {
+        this.scrolling = true;
+      },
+      scrollEnd() {
+        this.scrolling = false;
+      },
+      error() {
+      },
+      updateTime() {
+      },
+      end() {
+      },
       _getSongDetail() {
         this.$http
           .get(`/api/song/detail/?id=${this.song.id}&ids=[${this.song.id}]`)
@@ -168,11 +199,23 @@
             res = res.data;
             if (res.code === ERR_OK) {
               this.songLyric = new Lyric(res.lrc.lyric, this._lrcHandler);
+              if (this.playing) {
+                this.songLyric.play();
+              }
             }
           });
       },
-      _lrcHandler() {
-
+      _getSongUrl() {
+        this.songUrl = 'http://m10.music.126.net/20170809122623/9f4d793f39e40eadafa84aef345a1846/ymusic/c129/044c/1c2c/b13b4ecba32004941416c3523841b2bf.mp3';
+      },
+      _lrcHandler({lineNum}) {
+        this.currentLine = lineNum;
+        if (lineNum > 4) {
+          let lineEl = this.$refs.lyricLine[lineNum - 4];
+          this.$refs.lyricList.scrollToElement(lineEl, 1000);
+        } else {
+          this.$refs.lyricList.scrollTo(0, 0, 1000);
+        }
       },
       ...mapMutations({
         setFullScreen: 'SET_FULL_SCREEN',
@@ -198,6 +241,17 @@
       currentIndex() {
         this._getSongDetail();
         this._getSongLcr();
+        this._getSongUrl();
+      },
+      playing() {
+        if (!this.songLyric || !this.songLyric.play) {
+          return;
+        }
+        if (this.playing) {
+          this.songLyric.play();
+        } else {
+          this.songLyric.stop();
+        }
       }
     }
   };
