@@ -84,8 +84,8 @@
           <div class="tip">横滑可以切换上下首奥</div>
         </div>
         <div class="control">
-          <i :class="playState"></i>
-          <i class="icon-playlist"></i>
+          <i @click.stop="togglePlaying" :class="playState"></i>
+          <i @click.stop="showList" class="icon-playlist"></i>
         </div>
       </div>
     </transition>
@@ -97,7 +97,11 @@
     <transition name="fade">
       <div v-show="footListShow" class="foot-list-background"></div>
     </transition>
-    <audio ref="audio" :src="songUrl" @play="ready" @error="error" @timeupdate="updateTime"
+    <audio ref="audio"
+           :src="songUrl"
+           @play="ready"
+           @error="error"
+           @timeupdate="updateTime"
            @ended="end"></audio>
   </div>
 </template>
@@ -106,6 +110,7 @@
   import Scroll from 'base/scroll/scroll';
   import FootList from 'components/foot-list/foot-list';
   import {ERR_OK} from 'api/config';
+  import {playMode} from 'common/js/config';
   import {mapGetters, mapMutations} from 'vuex';
   import {createSong} from 'common/js/song';
   import Lyric from 'lyric-parser';
@@ -168,7 +173,6 @@
       ready() {
       },
       scroll(pos) {
-
       },
       scrollStart() {
         this.scrolling = true;
@@ -180,7 +184,20 @@
       },
       updateTime() {
       },
+      loop() {
+        this.$refs.audio.currentTime = 0;
+        this.$refs.audio.play();
+        this.setPlaying(true);
+        if (this.songLyric) {
+          this.songLyric.seek(0);
+        }
+      },
       end() {
+        if (this.mode === playMode.loop) {
+          this.loop();
+        } else {
+          this.forward();
+        }
       },
       _getSongDetail() {
         this.$http
@@ -201,12 +218,13 @@
               this.songLyric = new Lyric(res.lrc.lyric, this._lrcHandler);
               if (this.playing) {
                 this.songLyric.play();
+                this.$refs.audio.play();
               }
             }
           });
       },
       _getSongUrl() {
-        this.songUrl = 'http://m10.music.126.net/20170809122623/9f4d793f39e40eadafa84aef345a1846/ymusic/c129/044c/1c2c/b13b4ecba32004941416c3523841b2bf.mp3';
+        this.songUrl = 'http://m10.music.126.net/20170810145201/ec12ed12383676c4eba3a6a4f3ea3bd3/ymusic/fa90/df9c/59f7/95c4a2802e0b9191ae1a048f127e53c5.mp3';
       },
       _lrcHandler({lineNum}) {
         this.currentLine = lineNum;
@@ -242,15 +260,18 @@
         this._getSongDetail();
         this._getSongLcr();
         this._getSongUrl();
+        //TODO 暂时单曲循环，因为只拿了一首歌的urlQQQAQQQ
+        this.loop();
       },
       playing() {
         if (!this.songLyric || !this.songLyric.play) {
           return;
         }
+        this.songLyric.togglePlay();
         if (this.playing) {
-          this.songLyric.play();
+          this.$refs.audio.play();
         } else {
-          this.songLyric.stop();
+          this.$refs.audio.pause();
         }
       }
     }
@@ -440,6 +461,7 @@
             flex 1
             color $color-text-ll
             font-size $font-icon-size-large-x
+            font-weight 300
             .backward
               flex 1
             .playing
@@ -482,6 +504,7 @@
         font-size $font-size-large-x
         text-align center
         i
+          font-size $font-icon-size-medium
           line-height 50px
           flex 1
 
@@ -515,5 +538,4 @@
 
   .fade-enter, .fade-leave-to
     opacity 0
-
 </style>

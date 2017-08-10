@@ -13,32 +13,38 @@
       </div>
     </div>
     <div class="list-wrapper">
-      <ul class="songs">
-        <li
-          class="song"
-          v-for="(song,index) in currentPlaylist"
-          @click="selectItem(song,index)"
-        >
-          <div class="text">
-            <span class="name">{{song.name}}</span>
-            <span class="description">-{{song.description}}</span>
-          </div>
-          <div class="ctrl">
-            <i></i>
-          </div>
-        </li>
-      </ul>
+      <scroll :list="currentPlaylist">
+        <ul class="songs">
+          <li
+            class="song"
+            v-for="(song,index) in currentPlaylist"
+            @click="selectItem(song,index)"
+          >
+            <div class="text">
+              <span class="name">{{song.name}}</span>
+              <span class="description">-{{song.description}}</span>
+            </div>
+            <div class="ctrl">
+              <i></i>
+            </div>
+          </li>
+        </ul>
+      </scroll>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import {mapGetters, mapActions} from 'vuex';
+  import Scroll from 'base/scroll/scroll';
   export default {
     computed: {
       ...mapGetters([
         'currentPlaylist'
       ])
+    },
+    components: {
+      Scroll
     },
     methods: {
       selectItem(item, index) {
@@ -79,6 +85,8 @@
         text-align center
     .list-wrapper
       color $color-text-l
+      overflow hidden
+      height 100%
       .song
         display flex
         align-items center

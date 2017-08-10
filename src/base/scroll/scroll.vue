@@ -28,6 +28,11 @@
           return {};
         }
       },
+      list: {
+        type: Array,
+        default: null
+      },
+
       listenScroll: {
         type: Boolean,
         default: false
@@ -95,6 +100,11 @@
       }
     },
     watch: {
+      list() {
+        setTimeout(() => {
+          this.refresh();
+        }, 1000);
+      },
       data() {
         setTimeout(() => {
           this.refresh();
