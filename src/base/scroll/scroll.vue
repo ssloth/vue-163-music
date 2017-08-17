@@ -24,9 +24,7 @@
       },
       data: {
         type: Object,
-        default: function() {
-          return {};
-        }
+        default: null
       },
       list: {
         type: Array,
@@ -44,6 +42,10 @@
       scrollEnd: {
         type: Boolean,
         default: false
+      },
+      efreshDelay: {
+        type: Number,
+        default: 50
       }
     },
     mounted() {
@@ -76,9 +78,7 @@
         }
         if (this.scrollEnd) {
           let me = this;
-          console.log(1);
           this.scroll.on('scrollEnd', (pos) => {
-            console.log(1);
             me.$emit('scrollEnd', pos);
           });
         }
@@ -108,7 +108,7 @@
       data() {
         setTimeout(() => {
           this.refresh();
-        }, 1000);
+        }, this.refreshDelay);
       }
     }
   };

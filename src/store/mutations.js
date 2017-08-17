@@ -21,6 +21,12 @@ const mutations = {
   },
   [types.SET_CURRENT_INDEX](state, index) {
     state.player.currentIndex = index;
+  },
+  [types.REMOVE_SONG](state, id) {
+    state.player.currentPlaylist.splice(id, 1);
+  },
+  [types.CLEAR_PLAYLIST](state) {
+    state.player.currentPlaylist = [];
   }
 };
 

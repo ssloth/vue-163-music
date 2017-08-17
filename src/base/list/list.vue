@@ -5,8 +5,8 @@
     </div>
     <div class="content">
       <ul class="item-list">
-        <li @click="selectItem(item)" class="item" v-for="item in data.list">
-          <img class="img" v-lazy="item.picUrl" width="100" height="110">
+        <li @click="selectItem(item)" class="item" v-for="  item in data.list">
+          <img class="img" v-lazy="item.picUrl" width="100" height="120">
           <p class="text">{{item.name}}</p>
         </li>
       </ul>

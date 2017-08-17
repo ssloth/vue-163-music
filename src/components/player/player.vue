@@ -54,7 +54,7 @@
           <div class="progess-bar-wrapper"></div>
           <div class="operators">
             <div @click="toggleMode" class="mode">
-              <i class="icon-random"></i>
+              <i :class="modeIcon"></i>
             </div>
             <div class="play-control">
               <div @click="backward" class="backward">
@@ -124,6 +124,7 @@
     },
     data() {
       return {
+        isNull: false,
         scrolling: false,
         songDetail: {},
         songLyric: {},
@@ -147,7 +148,11 @@
         this.setFullScreen(true);
       },
       toggleMode() {
-
+        if (this.mode === 2) {
+          this.setMode(0);
+        } else {
+          this.setMode(this.mode + 1);
+        }
       },
       showList() {
         this.footListShow = true;
@@ -188,7 +193,7 @@
         this.$refs.audio.currentTime = 0;
         this.$refs.audio.play();
         this.setPlaying(true);
-        if (this.songLyric) {
+        if (this.songLyric && this.songLyric.seek) {
           this.songLyric.seek(0);
         }
       },
@@ -215,6 +220,11 @@
           .then((res) => {
             res = res.data;
             if (res.code === ERR_OK) {
+              if (!res.lrc) {
+                res.lrc = {
+                  lyric: '[00:00.00] [10:00.00]暂无歌词:('
+                };
+              }
               this.songLyric = new Lyric(res.lrc.lyric, this._lrcHandler);
               if (this.playing) {
                 this.songLyric.play();
@@ -238,12 +248,17 @@
       ...mapMutations({
         setFullScreen: 'SET_FULL_SCREEN',
         setPlaying: 'SET_PLAYING',
-        setCurrentIndex: 'SET_CURRENT_INDEX'
+        setCurrentIndex: 'SET_CURRENT_INDEX',
+        setMode: 'SET_MODE'
       })
     },
     computed: {
       playState() {
         return this.playing ? 'icon-play' : 'icon-pause';
+      },
+      modeIcon() {
+        let modeArr = ['icon-list-cycle', 'icon-single-cycle', 'icon-random'];
+        return modeArr[this.mode];
       },
       ...mapGetters([
         'playing',
@@ -260,8 +275,8 @@
         this._getSongDetail();
         this._getSongLcr();
         this._getSongUrl();
-        //TODO 暂时单曲循环，因为只拿了一首歌的urlQQQAQQQ
-        this.loop();
+        // TODO 暂时单曲循环，因为只拿了一首歌的urlQQQAQQQ
+        setTimeout(this.loop, 100);
       },
       playing() {
         if (!this.songLyric || !this.songLyric.play) {
@@ -273,6 +288,9 @@
         } else {
           this.$refs.audio.pause();
         }
+      },
+      currentPlaylist() {
+        this.isNull = this.currentPlaylist.length === 0;
       }
     }
   };

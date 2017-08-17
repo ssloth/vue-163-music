@@ -6,7 +6,7 @@ const state = {
     song: {},
     randomPlaylist: [],
     currentPlaylist: [],
-    currentIndex: 0,
+    currentIndex: -1,
     mode: 0
   }
 };

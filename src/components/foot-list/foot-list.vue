@@ -8,7 +8,7 @@
       <div class="collection">
         <i class="icon-collection"></i> 收藏
       </div>
-      <div class="clear">
+      <div @click.stop="clearPlaylist" class="clear">
         <i class="icon-clear"></i> 清空
       </div>
     </div>
@@ -24,8 +24,8 @@
               <span class="name">{{song.name}}</span>
               <span class="description">-{{song.description}}</span>
             </div>
-            <div class="ctrl">
-              <i></i>
+            <div @click.stop="removeSong(index)" class="ctrl">
+              <i class="fa fa-close"></i>
             </div>
           </li>
         </ul>
@@ -35,7 +35,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {mapGetters, mapActions} from 'vuex';
+  import {mapGetters, mapActions, mapMutations} from 'vuex';
   import Scroll from 'base/scroll/scroll';
   export default {
     computed: {
@@ -55,7 +55,11 @@
       },
       ...mapActions([
         'selectPlay'
-      ])
+      ]),
+      ...mapMutations({
+        removeSong: 'REMOVE_SONG',
+        clearPlaylist: 'CLEAR_PLAYLIST'
+      })
     }
   };
 </script>
@@ -104,5 +108,7 @@
             color $color-text
             line-height 15px
         .ctrl
-          flex 50px 0 0
+          flex 20px 0 0
+          text-align center
+          font-size $font-size-small-s
 </style>
