@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <ul class="item-list">
-        <li @click="selectItem(item)" class="item" v-for="  item in data.list">
+        <li @click="selectItem(item)" class="item" :class="itemClass + item.size" v-for="item in data.list">
           <img class="img" v-lazy="item.picUrl" width="100" height="120">
           <p class="text">{{item.name}}</p>
         </li>
@@ -26,6 +26,9 @@
           };
         }
       }
+    },
+    created() {
+      this.itemClass = 'item-';
     },
     methods: {
       selectItem(item) {
@@ -55,7 +58,13 @@
         flex-direction row
         flex-wrap wrap
         .item
-          width 33.33%
+          margin 5px 0
+          &.item-1
+            width 100%
+          &.item-2
+            width 50%
+          &.item-3
+            width 33.33%
           .img
             width 100%
           .text

@@ -178,6 +178,7 @@
       ready() {
       },
       scroll(pos) {
+        console.log(pos);
       },
       scrollStart() {
         this.scrolling = true;
@@ -234,7 +235,10 @@
           });
       },
       _getSongUrl() {
-        this.songUrl = 'http://m10.music.126.net/20170810145201/ec12ed12383676c4eba3a6a4f3ea3bd3/ymusic/fa90/df9c/59f7/95c4a2802e0b9191ae1a048f127e53c5.mp3';
+        this.$http.get(`/newapi/music/url?id=${this.song.id}`).then((res) => {
+          this.songUrl = res.data.data[0].url;
+          console.log(this.songUrl);
+        });
       },
       _lrcHandler({lineNum}) {
         this.currentLine = lineNum;
@@ -254,7 +258,7 @@
     },
     computed: {
       playState() {
-        return this.playing ? 'icon-play' : 'icon-pause';
+        return this.playing ? 'icon-pause' : 'icon-play';
       },
       modeIcon() {
         let modeArr = ['icon-list-cycle', 'icon-single-cycle', 'icon-random'];
@@ -275,8 +279,6 @@
         this._getSongDetail();
         this._getSongLcr();
         this._getSongUrl();
-        // TODO 暂时单曲循环，因为只拿了一首歌的urlQQQAQQQ
-        setTimeout(this.loop, 100);
       },
       playing() {
         if (!this.songLyric || !this.songLyric.play) {

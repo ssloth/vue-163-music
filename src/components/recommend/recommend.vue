@@ -13,7 +13,11 @@
       </div>
       <div class="list-wrapper">
         <list :data="homeRecommendPlaylistList" @select="selectPlaylist"></list>
-        <list :data="homeRecommendPlaylistList"></list>
+        <list :data="privatecontent" @select="selectPlaylist"></list>
+        <list :data="latestPlaylistList" @select="selectPlaylist"></list>
+        <list :data="homeRecommendMV" @select="selectPlaylist"></list>
+        <list :data="anchorRadio" @select="selectPlaylist"></list>
+
       </div>
     </scroll>
     <router-view></router-view>
@@ -25,18 +29,30 @@
   import Scroll from 'base/scroll/scroll';
   import List from 'base/list/list';
   import Subnav from 'components/subnav/subnav';
-  import axios from 'axios';
   import {mapMutations} from 'vuex';
   export default {
     data() {
       return {
         picList: [],
-        homeRecommendPlaylistList: {}
+        homeRecommendPlaylistList: {},
+        latestPlaylistList: {},
+        homeRecommendMV: {},
+        anchorRadio: {},
+        privatecontent: {}
       };
     },
     created() {
       this._getRecommendPicList();
       this._getHomeRecommendPlaylistList();
+      this._getLatestPlaylistList();
+      this._getPrivatecontent();
+      this._getHomeRecommendMV();
+      this._getAnchorRadio();
+      this.$nextTick(() => {
+        setTimeout(() => {
+          this.refresh();
+        }, 2000);
+      });
     },
     components: {
       Slider, Subnav, Scroll, List
@@ -49,25 +65,52 @@
         this.setPlaylist(playlist);
       },
       _getRecommendPicList() {
-        axios.get('/api163/getRecommendPicList').then((res) => {
+        this.$http.get('/api163/getRecommendPicList').then((res) => {
           this.picList = res.data;
         });
       },
       _getHomeRecommendPlaylistList() {
-        axios.get('/api163/homepageData').then((res) => {
-          this.homeRecommendPlaylistList = this._PlaylistFilter(res.data);
-          this.refresh();
+        this.$http.get('/newapi/personalized').then((res) => {
+          this.homeRecommendPlaylistList = this._PlaylistFilter('推荐歌单', res.data);
         });
       },
-      _PlaylistFilter(data) {
+      _getLatestPlaylistList() {
+        this.$http.get('/newapi/personalized/newsong').then((res) => {
+          this.latestPlaylistList = this._PlaylistFilter('最新音乐', res.data);
+        });
+      },
+      _getHomeRecommendMV() {
+        this.$http.get('/newapi/personalized/mv').then((res) => {
+          this.homeRecommendMV = this._PlaylistFilter('推荐MV', res.data, 2);
+        });
+      },
+      _getAnchorRadio() {
+        this.$http.get('/newapi/personalized/djprogram').then((res) => {
+          this.anchorRadio = this._PlaylistFilter('主播电台', res.data);
+        });
+      },
+      _getPrivatecontent() {
+        this.$http.get('/newapi/personalized/privatecontent').then((res) => {
+          this.privatecontent = this._PlaylistFilter('独家放送', res.data);
+        });
+      },
+      _PlaylistFilter(title, data, size = 3) {
         let ret = {
-          title: '推荐歌单',
+          title: title,
           list: []
         };
-        data.data.HomeRecommend.data._list.forEach((items) => {
-          items.forEach((item) => {
-            ret.list.push(item);
-          });
+        if (data.result.length % 2 !== 0) {
+          for (var i = 0; i < data.result.length - 1; i++) {
+            data.result[i].size = 2;
+            ret.list.push(data.result[i]);
+          }
+          data.result[i].size = 1;
+          ret.list.push(data.result[i]);
+          return ret;
+        }
+        data.result.forEach((item) => {
+          item.size = size;
+          ret.list.push(item);
         });
         return ret;
       },

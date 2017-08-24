@@ -112,6 +112,7 @@ devMiddleware.waitUntilValid(() => {
   }
   _resolve()
 })
+console.log(port)
 
 var server = app.listen(port)
 
