@@ -2,106 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86787e2f-5da4-4bff-bed2-7e9053181a5d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/public/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/album.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/artist_album.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/artists.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/artists_desc.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/artists_mv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/banner.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/check_music.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/comment_album.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/comment_dj.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/comment_like.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/comment_music.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/comment_mv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/comment_playlist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/daily_signin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/dj_catelist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/dj_detail.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/dj_hot.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/dj_program.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/dj_program_detail.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/dj_recommend.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/dj_recommend_type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/dj_sub.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/fm_trash.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/follow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/like.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/likelist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/logWeb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/login.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/loginCellphone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/login_refresh.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/lyric.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/musicUrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/mv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/mv_first.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/mv_url.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/personal_fm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/personalized.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/personalized_djprogram.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/personalized_mv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/personalized_newsong.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/personalized_privatecontent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/playlist_catlist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/playlist_detail.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/playlist_hot.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/playlist_tracks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/program_recommend.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/recommend_dislike.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/recommend_resource.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/recommend_songs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/resource_like.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/search.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/search_multimatch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/search_suggest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/simi_artists.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/simi_mv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/simi_playlist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/simi_song.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/simi_user.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/song_detail.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/top_album.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/top_artists.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/top_list.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/top_mv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/top_playlist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/top_playlist_highquality.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/top_songs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/toplist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/toplist_artist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/toplist_detail.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/user_audio.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/user_cloud.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/user_cloud_search.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/user_detail.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/user_dj.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/user_event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/user_followeds.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/user_follows.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/user_playlist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/user_playrecord.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/router/user_subcount.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/util/crypto.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/util/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/icomoon/Read Me.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/icomoon/demo-files/demo.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/icomoon/demo-files/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/icomoon/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/icomoon/selection.json" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/index.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.eslintignore" afterPath="$PROJECT_DIR$/.eslintignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/specs/Player.spec.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/dev-server.js" afterPath="$PROJECT_DIR$/build/dev-server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/index.js" afterPath="$PROJECT_DIR$/config/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/list/list.vue" afterPath="$PROJECT_DIR$/src/base/list/list.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/player/player.vue" afterPath="$PROJECT_DIR$/src/components/player/player.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/recommend/recommend.vue" afterPath="$PROJECT_DIR$/src/components/recommend/recommend.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/e2e/runner.js" afterPath="$PROJECT_DIR$/test/e2e/runner.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/karma.conf.js" afterPath="$PROJECT_DIR$/test/unit/karma.conf.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/specs/Hello.spec.js" afterPath="$PROJECT_DIR$/test/unit/specs/Hello.spec.js" />
     </list>
     <ignored path="music-app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -127,83 +33,36 @@
       <file leaf-file-name="player.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/player/player.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="244" column="23" selection-start-line="244" selection-start-column="23" selection-end-line="244" selection-end-column="23" />
+            <state relative-caret-position="99">
+              <caret line="250" column="30" selection-start-line="250" selection-start-column="30" selection-end-line="250" selection-end-column="30" />
               <folding>
-                <element signature="n#div#2;n#div#0;n#transition#0;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#transition#1;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#transition#2;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#transition#3;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="e#4334#4367#0" expanded="false" />
                 <element signature="e#4385#4415#0" expanded="false" />
-                <element signature="e#4682#4726#0" expanded="false" />
-                <element signature="e#4745#4792#0" expanded="false" />
-                <element signature="e#4816#4865#0" expanded="false" />
-                <element signature="e#4888#4931#0" expanded="false" />
-                <element signature="e#4952#5085#0" expanded="false" />
-                <element signature="e#5104#5147#0" expanded="false" />
-                <element signature="e#5166#5250#0" expanded="false" />
-                <element signature="e#5269#5458#0" expanded="false" />
-                <element signature="e#5476#5665#0" expanded="false" />
-                <element signature="e#5681#5690#0" expanded="false" />
-                <element signature="e#5710#5745#0" expanded="false" />
-                <element signature="e#5767#5807#0" expanded="false" />
-                <element signature="e#5827#5868#0" expanded="false" />
-                <element signature="e#5884#5893#0" expanded="false" />
-                <element signature="e#5914#5923#0" expanded="false" />
-                <element signature="e#6164#6292#0" expanded="false" />
-                <element signature="e#6317#6626#0" expanded="false" />
-                <element signature="e#7250#7434#0" expanded="false" />
-                <element signature="e#7761#7921#0" expanded="false" />
-                <element signature="e#8997#9092#0" expanded="false" />
-                <element signature="e#9096#9222#0" expanded="false" />
-                <element signature="e#9244#9282#0" expanded="false" />
-                <element signature="e#9302#9340#0" expanded="false" />
+                <element signature="e#4706#4750#0" expanded="false" />
+                <element signature="e#4769#4816#0" expanded="false" />
+                <element signature="e#4840#4968#0" expanded="false" />
+                <element signature="e#4991#5034#0" expanded="false" />
+                <element signature="e#5055#5188#0" expanded="false" />
+                <element signature="e#5207#5250#0" expanded="false" />
+                <element signature="e#5269#5353#0" expanded="false" />
+                <element signature="e#5372#5561#0" expanded="false" />
+                <element signature="e#5579#5768#0" expanded="false" />
+                <element signature="e#5784#5793#0" expanded="false" />
+                <element signature="e#5813#5848#0" expanded="false" />
+                <element signature="e#5870#5910#0" expanded="false" />
+                <element signature="e#5930#5971#0" expanded="false" />
+                <element signature="e#5987#5996#0" expanded="false" />
+                <element signature="e#6017#6026#0" expanded="false" />
+                <element signature="e#6300#6428#0" expanded="false" />
+                <element signature="e#9160#9255#0" expanded="false" />
+                <element signature="e#9259#9385#0" expanded="false" />
+                <element signature="e#9407#9445#0" expanded="false" />
+                <element signature="e#9465#9503#0" expanded="false" />
+                <element signature="e#9518#14858#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="38" column="14" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="8" column="27" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recommend.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/recommend/recommend.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="72" column="31" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="31" />
-              <folding>
-                <element signature="e#933#973#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/list/list.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -232,11 +91,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/common/stylus/style.styl" />
-        <option value="$PROJECT_DIR$/src/components/hotRank/hotRank.vue" />
-        <option value="$PROJECT_DIR$/src/components/fm/fm.vue" />
-        <option value="$PROJECT_DIR$/src/components/recommendDaily/recommendDaily.vue" />
-        <option value="$PROJECT_DIR$/src/components/list/list.vue" />
         <option value="$PROJECT_DIR$/src/api/jsonp.js" />
         <option value="$PROJECT_DIR$/server/index.js" />
         <option value="$PROJECT_DIR$/mock.json" />
@@ -282,6 +136,11 @@
         <option value="$PROJECT_DIR$/config/index.js" />
         <option value="$PROJECT_DIR$/src/components/recommend/recommend.vue" />
         <option value="$PROJECT_DIR$/src/base/list/list.vue" />
+        <option value="$PROJECT_DIR$/test/e2e/runner.js" />
+        <option value="$PROJECT_DIR$/test/unit/karma.conf.js" />
+        <option value="$PROJECT_DIR$/test/unit/specs/player.spec.js" />
+        <option value="$PROJECT_DIR$/test/unit/specs/Hello.spec.js" />
+        <option value="$PROJECT_DIR$/test/unit/specs/Player.spec.js" />
         <option value="$PROJECT_DIR$/src/components/player/player.vue" />
       </list>
     </option>
@@ -329,6 +188,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -339,7 +199,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -482,7 +341,8 @@
       <workItem from="1502355772640" duration="1170000" />
       <workItem from="1502436875249" duration="3976000" />
       <workItem from="1502981678047" duration="1821000" />
-      <workItem from="1503548076916" duration="7927000" />
+      <workItem from="1503548076916" duration="8806000" />
+      <workItem from="1504009035435" duration="4917000" />
     </task>
     <task id="LOCAL-00001" summary="还在初始化项目，并优化了一下目录">
       <created>1500286385659</created>
@@ -631,11 +491,18 @@
       <option name="project" value="LOCAL" />
       <updated>1502983314080</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="引入了NeteaseCloudMusicApi，重新写了首页的推介页面，还有部分页面api没有提供...&#10;解决了播放问题，播放器内核忘了写进度条，并发现了一些bug,主要bug是歌词与歌曲的联动方面">
+      <created>1503556262867</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1503556262867</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179407000" />
+    <option name="totallyTimeSpent" value="185203000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -650,12 +517,12 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15773809" sideWeight="0.7147651" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15773809" sideWeight="0.6971609" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923076" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2769231" sideWeight="0.58556545" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15773809" sideWeight="0.2852349" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15773809" sideWeight="0.30283913" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.083076924" sideWeight="0.41443452" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5123077" sideWeight="0.41443452" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25538462" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -721,7 +588,8 @@
     <MESSAGE value="内核完成80%，就差播放接口了" />
     <MESSAGE value="可以播放第1个歌单的第2首歌《成都》，因为还没写后端，所以拿的固定的url.....&#10;内核基本功能完成," />
     <MESSAGE value="模式切换" />
-    <option name="LAST_COMMIT_MESSAGE" value="模式切换" />
+    <MESSAGE value="引入了NeteaseCloudMusicApi，重新写了首页的推介页面，还有部分页面api没有提供...&#10;解决了播放问题，播放器内核忘了写进度条，并发现了一些bug,主要bug是歌词与歌曲的联动方面" />
+    <option name="LAST_COMMIT_MESSAGE" value="引入了NeteaseCloudMusicApi，重新写了首页的推介页面，还有部分页面api没有提供...&#10;解决了播放问题，播放器内核忘了写进度条，并发现了一些bug,主要bug是歌词与歌曲的联动方面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -735,35 +603,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/common/stylus/base.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/QQ截图20170803213620.png" />
-    <entry file="file://$PROJECT_DIR$/src/base/status-bar/status-bar.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/slider/slider.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/js/playlist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="36" column="30" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -970,7 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -981,11 +819,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/static/artist_album.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/server/static/artist_album.png" />
     <entry file="file://$PROJECT_DIR$/.eslintignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
@@ -998,7 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2106">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,7 +839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,7 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,7 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-510">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1030,7 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4396">
           <caret line="173" column="16" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1038,13 +867,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
           <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="988">
           <caret line="38" column="14" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="14" />
           <folding />
         </state>
@@ -1052,66 +880,109 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
+        <state relative-caret-position="208">
           <caret line="8" column="27" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="27" />
           <folding>
-            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#0#34#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/recommend/recommend.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
+        <state relative-caret-position="1768">
           <caret line="72" column="31" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="31" />
           <folding>
-            <element signature="e#933#973#0" expanded="true" />
+            <element signature="e#933#973#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/base/list/list.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="468">
           <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/e2e/runner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/karma.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="32" column="2" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="2" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/specs/Hello.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/specs/Player.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/player/player.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="244" column="23" selection-start-line="244" selection-start-column="23" selection-end-line="244" selection-end-column="23" />
+        <state relative-caret-position="99">
+          <caret line="250" column="30" selection-start-line="250" selection-start-column="30" selection-end-line="250" selection-end-column="30" />
           <folding>
-            <element signature="n#div#2;n#div#0;n#transition#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#transition#1;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#transition#2;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#transition#3;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="e#4334#4367#0" expanded="false" />
             <element signature="e#4385#4415#0" expanded="false" />
-            <element signature="e#4682#4726#0" expanded="false" />
-            <element signature="e#4745#4792#0" expanded="false" />
-            <element signature="e#4816#4865#0" expanded="false" />
-            <element signature="e#4888#4931#0" expanded="false" />
-            <element signature="e#4952#5085#0" expanded="false" />
-            <element signature="e#5104#5147#0" expanded="false" />
-            <element signature="e#5166#5250#0" expanded="false" />
-            <element signature="e#5269#5458#0" expanded="false" />
-            <element signature="e#5476#5665#0" expanded="false" />
-            <element signature="e#5681#5690#0" expanded="false" />
-            <element signature="e#5710#5745#0" expanded="false" />
-            <element signature="e#5767#5807#0" expanded="false" />
-            <element signature="e#5827#5868#0" expanded="false" />
-            <element signature="e#5884#5893#0" expanded="false" />
-            <element signature="e#5914#5923#0" expanded="false" />
-            <element signature="e#6164#6292#0" expanded="false" />
-            <element signature="e#6317#6626#0" expanded="false" />
-            <element signature="e#7250#7434#0" expanded="false" />
-            <element signature="e#7761#7921#0" expanded="false" />
-            <element signature="e#8997#9092#0" expanded="false" />
-            <element signature="e#9096#9222#0" expanded="false" />
-            <element signature="e#9244#9282#0" expanded="false" />
-            <element signature="e#9302#9340#0" expanded="false" />
+            <element signature="e#4706#4750#0" expanded="false" />
+            <element signature="e#4769#4816#0" expanded="false" />
+            <element signature="e#4840#4968#0" expanded="false" />
+            <element signature="e#4991#5034#0" expanded="false" />
+            <element signature="e#5055#5188#0" expanded="false" />
+            <element signature="e#5207#5250#0" expanded="false" />
+            <element signature="e#5269#5353#0" expanded="false" />
+            <element signature="e#5372#5561#0" expanded="false" />
+            <element signature="e#5579#5768#0" expanded="false" />
+            <element signature="e#5784#5793#0" expanded="false" />
+            <element signature="e#5813#5848#0" expanded="false" />
+            <element signature="e#5870#5910#0" expanded="false" />
+            <element signature="e#5930#5971#0" expanded="false" />
+            <element signature="e#5987#5996#0" expanded="false" />
+            <element signature="e#6017#6026#0" expanded="false" />
+            <element signature="e#6300#6428#0" expanded="false" />
+            <element signature="e#9160#9255#0" expanded="false" />
+            <element signature="e#9259#9385#0" expanded="false" />
+            <element signature="e#9407#9445#0" expanded="false" />
+            <element signature="e#9465#9503#0" expanded="false" />
+            <element signature="e#9518#14858#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -131,6 +131,7 @@
         songUrl: '',
         showLcr: false,
         currentLine: 0,
+        currentTime: 0,
         footListShow: false
       };
     },
@@ -143,6 +144,9 @@
       },
       togglePlaying() {
         this.setPlaying(!this.playing);
+        if (this.songLyric) {
+          this.songLyric.togglePlay();
+        }
       },
       toFullScreen() {
         this.setFullScreen(true);
@@ -196,6 +200,7 @@
         this.setPlaying(true);
         if (this.songLyric && this.songLyric.seek) {
           this.songLyric.seek(0);
+          this.songLyric.play();
         }
       },
       end() {
@@ -227,17 +232,20 @@
                 };
               }
               this.songLyric = new Lyric(res.lrc.lyric, this._lrcHandler);
-              if (this.playing) {
-                this.songLyric.play();
-                this.$refs.audio.play();
-              }
             }
+          })
+          .catch(() => {
+            this.songLyric = null;
+            this.currentLine = 0;
           });
       },
       _getSongUrl() {
         this.$http.get(`/newapi/music/url?id=${this.song.id}`).then((res) => {
           this.songUrl = res.data.data[0].url;
-          console.log(this.songUrl);
+            this.$nextTick(() => {
+              this.$refs.audio.play();
+              this.songLyric.play();
+            });
         });
       },
       _lrcHandler({lineNum}) {
@@ -279,17 +287,14 @@
         this._getSongDetail();
         this._getSongLcr();
         this._getSongUrl();
+        this.currentTime = 0;
+        this.currentLine = 0;
       },
-      playing() {
-        if (!this.songLyric || !this.songLyric.play) {
-          return;
-        }
-        this.songLyric.togglePlay();
-        if (this.playing) {
-          this.$refs.audio.play();
-        } else {
-          this.$refs.audio.pause();
-        }
+      playing(newPlaying) {
+        const audio = this.$refs.audio;
+        this.$nextTick(() => {
+          newPlaying ? audio.play() : audio.pause();
+        });
       },
       currentPlaylist() {
         this.isNull = this.currentPlaylist.length === 0;
