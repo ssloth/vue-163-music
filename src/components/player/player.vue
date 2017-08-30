@@ -98,7 +98,7 @@
       <div v-show="footListShow" class="foot-list-background"></div>
     </transition>
     <audio ref="audio"
-           :src="songUrl"
+           :src="songDetail.url"
            @play="ready"
            @error="error"
            @timeupdate="updateTime"
@@ -128,7 +128,6 @@
         scrolling: false,
         songDetail: {},
         songLyric: {},
-        songUrl: '',
         showLcr: false,
         currentLine: 0,
         currentTime: 0,
@@ -211,41 +210,40 @@
         }
       },
       _getSongDetail() {
-        this.$http
-          .get(`/api/song/detail/?id=${this.song.id}&ids=[${this.song.id}]`)
-          .then((res) => {
-            res = res.data;
-            if (res.code === ERR_OK && res.songs.length > 0) {
-              this.songDetail = createSong(res.songs[0]);
+        this.$http.all([
+          this.$http.get(`/api/song/detail/?id=${this.song.id}&ids=[${this.song.id}]`),
+          this.$http.get(`/api/song/lyric?os=pc&id=${this.song.id}&lv=-1&kv=-1&tv=-1`),
+          this.$http.get(`/newapi/music/url?id=${this.song.id}`)
+        ]).then(this.$http.spread((detailResp, lyricResp, urlResp) => {
+          var detail = detailResp.data;
+          var lyric = lyricResp.data;
+          var url = urlResp.data;
+          if (detail.code === ERR_OK && detail.songs.length > 0) {
+            console.log(url);
+            this.songDetail = createSong(detail.songs[0], url.data[0].url);
+            if (!lyric.lrc) {
+              lyric.lrc = {
+                lyric: '[00:00.00] [10:00.00]暂无歌词:('
+              };
             }
-          });
-      },
-      _getSongLcr() {
-        this.$http
-          .get(`/api/song/lyric?os=pc&id=${this.song.id}&lv=-1&kv=-1&tv=-1`)
-          .then((res) => {
-            res = res.data;
-            if (res.code === ERR_OK) {
-              if (!res.lrc) {
-                res.lrc = {
-                  lyric: '[00:00.00] [10:00.00]暂无歌词:('
-                };
-              }
-              this.songLyric = new Lyric(res.lrc.lyric, this._lrcHandler);
-            }
-          })
-          .catch(() => {
-            this.songLyric = null;
-            this.currentLine = 0;
-          });
-      },
-      _getSongUrl() {
-        this.$http.get(`/newapi/music/url?id=${this.song.id}`).then((res) => {
-          this.songUrl = res.data.data[0].url;
+            this.songLyric = new Lyric(lyric.lrc.lyric, this._lrcHandler);
+          }
+          if (this.playing) {
             this.$nextTick(() => {
               this.$refs.audio.play();
-              this.songLyric.play();
             });
+          }
+        })).catch(function(error) {
+          if (error.response) {
+            // 请求已发出，但服务器响应的状态码不在 2xx 范围内
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
+          }
+          console.log(error.config);
         });
       },
       _lrcHandler({lineNum}) {
@@ -285,8 +283,6 @@
     watch: {
       currentIndex() {
         this._getSongDetail();
-        this._getSongLcr();
-        this._getSongUrl();
         this.currentTime = 0;
         this.currentLine = 0;
       },

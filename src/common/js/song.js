@@ -15,10 +15,11 @@ export class Song {
     this.albumId = albumId;
     this.albumBlurPicUrl = albumBlurPicUrl;
     this.url = url;
+    this.lyricText = null;
   }
 }
 
-export function createSong(songData) {
+export function createSong(songData, url, lyric) {
   return new Song({
     name: songData.name,
     id: songData.id,
@@ -26,7 +27,8 @@ export function createSong(songData) {
     albumNameName: songData.album.name,
     albumId: songData.album.id,
     albumBlurPicUrl: songData.album.blurPicUrl,
-    url: 'http://m10.music.126.net/20170805161243/d8cc7fc1d4e663038f86c1c2413e64eb/ymusic/f9ed/f39c/60aa/c05aefe4f2e515ec0dbb664d8684b975.mp3'
+    url: url,
+    lyric: lyric
   });
 }
 

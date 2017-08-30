@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86787e2f-5da4-4bff-bed2-7e9053181a5d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/specs/Player.spec.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/js/song.js" afterPath="$PROJECT_DIR$/src/common/js/song.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/player/player.vue" afterPath="$PROJECT_DIR$/src/components/player/player.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/e2e/runner.js" afterPath="$PROJECT_DIR$/test/e2e/runner.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/karma.conf.js" afterPath="$PROJECT_DIR$/test/unit/karma.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/specs/Hello.spec.js" afterPath="$PROJECT_DIR$/test/unit/specs/Hello.spec.js" />
     </list>
     <ignored path="music-app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,35 +30,36 @@
       <file leaf-file-name="player.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/player/player.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="250" column="30" selection-start-line="250" selection-start-column="30" selection-end-line="250" selection-end-column="30" />
+            <state relative-caret-position="92">
+              <caret line="216" column="71" selection-start-line="216" selection-start-column="71" selection-end-line="216" selection-end-column="71" />
               <folding>
                 <element signature="n#transition#1;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#transition#2;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#transition#3;n#div#0;n#template#0;n#!!top" expanded="false" />
-                <element signature="e#4334#4367#0" expanded="false" />
-                <element signature="e#4385#4415#0" expanded="false" />
-                <element signature="e#4706#4750#0" expanded="false" />
-                <element signature="e#4769#4816#0" expanded="false" />
-                <element signature="e#4840#4968#0" expanded="false" />
-                <element signature="e#4991#5034#0" expanded="false" />
-                <element signature="e#5055#5188#0" expanded="false" />
-                <element signature="e#5207#5250#0" expanded="false" />
-                <element signature="e#5269#5353#0" expanded="false" />
-                <element signature="e#5372#5561#0" expanded="false" />
-                <element signature="e#5579#5768#0" expanded="false" />
-                <element signature="e#5784#5793#0" expanded="false" />
-                <element signature="e#5813#5848#0" expanded="false" />
-                <element signature="e#5870#5910#0" expanded="false" />
-                <element signature="e#5930#5971#0" expanded="false" />
-                <element signature="e#5987#5996#0" expanded="false" />
-                <element signature="e#6017#6026#0" expanded="false" />
-                <element signature="e#6300#6428#0" expanded="false" />
-                <element signature="e#9160#9255#0" expanded="false" />
-                <element signature="e#9259#9385#0" expanded="false" />
-                <element signature="e#9407#9445#0" expanded="false" />
-                <element signature="e#9465#9503#0" expanded="false" />
-                <element signature="e#9518#14858#0" expanded="false" />
+                <element signature="e#3983#4023#0" expanded="true" />
+                <element signature="e#4341#4374#0" expanded="false" />
+                <element signature="e#4392#4422#0" expanded="false" />
+                <element signature="e#4692#4736#0" expanded="false" />
+                <element signature="e#4755#4802#0" expanded="false" />
+                <element signature="e#4826#4954#0" expanded="false" />
+                <element signature="e#4977#5020#0" expanded="false" />
+                <element signature="e#5041#5174#0" expanded="false" />
+                <element signature="e#5193#5236#0" expanded="false" />
+                <element signature="e#5255#5339#0" expanded="false" />
+                <element signature="e#5358#5547#0" expanded="false" />
+                <element signature="e#5565#5754#0" expanded="false" />
+                <element signature="e#5770#5779#0" expanded="false" />
+                <element signature="e#5799#5834#0" expanded="false" />
+                <element signature="e#5856#5896#0" expanded="false" />
+                <element signature="e#5916#5957#0" expanded="false" />
+                <element signature="e#5973#5982#0" expanded="false" />
+                <element signature="e#6003#6012#0" expanded="false" />
+                <element signature="e#6286#6414#0" expanded="false" />
+                <element signature="e#9365#9460#0" expanded="false" />
+                <element signature="e#9464#9590#0" expanded="false" />
+                <element signature="e#9612#9650#0" expanded="false" />
+                <element signature="e#9670#9708#0" expanded="false" />
+                <element signature="e#9723#15063#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -111,7 +109,6 @@
         <option value="$PROJECT_DIR$/src/base/slider/slider.vue" />
         <option value="$PROJECT_DIR$/src/store/index.js" />
         <option value="$PROJECT_DIR$/src/store/getters.js" />
-        <option value="$PROJECT_DIR$/src/common/js/song.js" />
         <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/src/base/progess-bar/progress-bar.vue" />
         <option value="$PROJECT_DIR$/src/components/foot-list.vue" />
@@ -141,6 +138,7 @@
         <option value="$PROJECT_DIR$/test/unit/specs/player.spec.js" />
         <option value="$PROJECT_DIR$/test/unit/specs/Hello.spec.js" />
         <option value="$PROJECT_DIR$/test/unit/specs/Player.spec.js" />
+        <option value="$PROJECT_DIR$/src/common/js/song.js" />
         <option value="$PROJECT_DIR$/src/components/player/player.vue" />
       </list>
     </option>
@@ -187,8 +185,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -342,7 +340,8 @@
       <workItem from="1502436875249" duration="3976000" />
       <workItem from="1502981678047" duration="1821000" />
       <workItem from="1503548076916" duration="8806000" />
-      <workItem from="1504009035435" duration="4917000" />
+      <workItem from="1504009035435" duration="5220000" />
+      <workItem from="1504086837087" duration="5651000" />
     </task>
     <task id="LOCAL-00001" summary="还在初始化项目，并优化了一下目录">
       <created>1500286385659</created>
@@ -498,11 +497,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503556262867</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="发现bug: -切歌后不能自动播放，并且歌词没有复位。&#10;初步判断是歌词、歌曲信息、歌曲url3个是异步加载的又会互相影响，所以出现bug...&#10;今天发现了3个bug，解决了1个还有5个.....">
+      <created>1504015347335</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1504015347335</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185203000" />
+    <option name="totallyTimeSpent" value="191157000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -517,12 +523,12 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15773809" sideWeight="0.6971609" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15773809" sideWeight="0.6854839" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923076" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2769231" sideWeight="0.58556545" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15773809" sideWeight="0.30283913" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15773809" sideWeight="0.31451613" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5123077" sideWeight="0.41443452" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23692308" sideWeight="0.41443452" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25538462" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -589,7 +595,8 @@
     <MESSAGE value="可以播放第1个歌单的第2首歌《成都》，因为还没写后端，所以拿的固定的url.....&#10;内核基本功能完成," />
     <MESSAGE value="模式切换" />
     <MESSAGE value="引入了NeteaseCloudMusicApi，重新写了首页的推介页面，还有部分页面api没有提供...&#10;解决了播放问题，播放器内核忘了写进度条，并发现了一些bug,主要bug是歌词与歌曲的联动方面" />
-    <option name="LAST_COMMIT_MESSAGE" value="引入了NeteaseCloudMusicApi，重新写了首页的推介页面，还有部分页面api没有提供...&#10;解决了播放问题，播放器内核忘了写进度条，并发现了一些bug,主要bug是歌词与歌曲的联动方面" />
+    <MESSAGE value="发现bug: -切歌后不能自动播放，并且歌词没有复位。&#10;初步判断是歌词、歌曲信息、歌曲url3个是异步加载的又会互相影响，所以出现bug...&#10;今天发现了3个bug，解决了1个还有5个....." />
+    <option name="LAST_COMMIT_MESSAGE" value="发现bug: -切歌后不能自动播放，并且歌词没有复位。&#10;初步判断是歌词、歌曲信息、歌曲url3个是异步加载的又会互相影响，所以出现bug...&#10;今天发现了3个bug，解决了1个还有5个....." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -603,13 +610,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
@@ -625,13 +625,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/Screenshot_20170801-155435.png" />
-    <entry file="file://$PROJECT_DIR$/src/common/js/song.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/Screenshot_20170510-202359.png" />
     <entry file="file://$PROJECT_DIR$/static/Screenshot_20170804-203440.png" />
     <entry file="file://$PROJECT_DIR$/static/cd-wrap.png" />
@@ -824,7 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
           <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,7 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="988">
           <caret line="38" column="14" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -892,9 +883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1768">
           <caret line="72" column="31" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="31" />
-          <folding>
-            <element signature="e#933#973#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -902,7 +890,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -910,7 +897,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -918,7 +904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -926,9 +911,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="32" column="2" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="2" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -937,7 +919,7 @@
         <state relative-caret-position="78">
           <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -946,43 +928,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Tencent/QQ/Temp/$CKS6ZRRGSP}[W7PO@ARNQC.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/js/song.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/player/player.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="250" column="30" selection-start-line="250" selection-start-column="30" selection-end-line="250" selection-end-column="30" />
+        <state relative-caret-position="92">
+          <caret line="216" column="71" selection-start-line="216" selection-start-column="71" selection-end-line="216" selection-end-column="71" />
           <folding>
             <element signature="n#transition#1;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#transition#2;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#transition#3;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#4334#4367#0" expanded="false" />
-            <element signature="e#4385#4415#0" expanded="false" />
-            <element signature="e#4706#4750#0" expanded="false" />
-            <element signature="e#4769#4816#0" expanded="false" />
-            <element signature="e#4840#4968#0" expanded="false" />
-            <element signature="e#4991#5034#0" expanded="false" />
-            <element signature="e#5055#5188#0" expanded="false" />
-            <element signature="e#5207#5250#0" expanded="false" />
-            <element signature="e#5269#5353#0" expanded="false" />
-            <element signature="e#5372#5561#0" expanded="false" />
-            <element signature="e#5579#5768#0" expanded="false" />
-            <element signature="e#5784#5793#0" expanded="false" />
-            <element signature="e#5813#5848#0" expanded="false" />
-            <element signature="e#5870#5910#0" expanded="false" />
-            <element signature="e#5930#5971#0" expanded="false" />
-            <element signature="e#5987#5996#0" expanded="false" />
-            <element signature="e#6017#6026#0" expanded="false" />
-            <element signature="e#6300#6428#0" expanded="false" />
-            <element signature="e#9160#9255#0" expanded="false" />
-            <element signature="e#9259#9385#0" expanded="false" />
-            <element signature="e#9407#9445#0" expanded="false" />
-            <element signature="e#9465#9503#0" expanded="false" />
-            <element signature="e#9518#14858#0" expanded="false" />
+            <element signature="e#3983#4023#0" expanded="true" />
+            <element signature="e#4341#4374#0" expanded="false" />
+            <element signature="e#4392#4422#0" expanded="false" />
+            <element signature="e#4692#4736#0" expanded="false" />
+            <element signature="e#4755#4802#0" expanded="false" />
+            <element signature="e#4826#4954#0" expanded="false" />
+            <element signature="e#4977#5020#0" expanded="false" />
+            <element signature="e#5041#5174#0" expanded="false" />
+            <element signature="e#5193#5236#0" expanded="false" />
+            <element signature="e#5255#5339#0" expanded="false" />
+            <element signature="e#5358#5547#0" expanded="false" />
+            <element signature="e#5565#5754#0" expanded="false" />
+            <element signature="e#5770#5779#0" expanded="false" />
+            <element signature="e#5799#5834#0" expanded="false" />
+            <element signature="e#5856#5896#0" expanded="false" />
+            <element signature="e#5916#5957#0" expanded="false" />
+            <element signature="e#5973#5982#0" expanded="false" />
+            <element signature="e#6003#6012#0" expanded="false" />
+            <element signature="e#6286#6414#0" expanded="false" />
+            <element signature="e#9365#9460#0" expanded="false" />
+            <element signature="e#9464#9590#0" expanded="false" />
+            <element signature="e#9612#9650#0" expanded="false" />
+            <element signature="e#9670#9708#0" expanded="false" />
+            <element signature="e#9723#15063#0" expanded="false" />
           </folding>
         </state>
       </provider>
