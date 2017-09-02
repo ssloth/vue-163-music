@@ -143,9 +143,6 @@
       },
       togglePlaying() {
         this.setPlaying(!this.playing);
-        if (this.songLyric) {
-          this.songLyric.togglePlay();
-        }
       },
       toFullScreen() {
         this.setFullScreen(true);
@@ -231,6 +228,7 @@
           if (this.playing) {
             this.$nextTick(() => {
               this.$refs.audio.play();
+              this.songLyric.play();
             });
           }
         })).catch(function(error) {
@@ -290,6 +288,9 @@
         const audio = this.$refs.audio;
         this.$nextTick(() => {
           newPlaying ? audio.play() : audio.pause();
+          if (this.songLyric.togglePlay) {
+            this.songLyric.togglePlay();
+          }
         });
       },
       currentPlaylist() {

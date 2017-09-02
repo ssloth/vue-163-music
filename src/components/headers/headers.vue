@@ -1,7 +1,7 @@
 <template>
   <div class="headers">
     <div class="nav">
-      <div class="side"><i class="fa fa-bars fa-lg"></i></div>
+      <div @click="menu" class="side"><i class="fa fa-bars fa-lg"></i></div>
       <div class="center">
         <span class="item"><i class="fa fa-music fa-lg"></i></span>
         <span class="item"><i class="fa fa-pinterest fa-lg"></i></span>
@@ -9,10 +9,28 @@
       </div>
       <div class="side"><i class="fa fa-search fa-lg"></i></div>
     </div>
+    <div @click="menu" v-if="menuShow" class="side-menu-wrapper">
+      <side-menu></side-menu>
+    </div>
   </div>
 </template>
 <script type="text/ecmascript-6">
-  export default {};
+  import SideMenu from 'components/side-menu/side-menu';
+  export default {
+    data() {
+      return {
+        menuShow: false
+      };
+    },
+    methods: {
+      menu() {
+        this.menuShow = !this.menuShow;
+      }
+    },
+    components: {
+      SideMenu
+    }
+  };
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
@@ -31,4 +49,14 @@
         flex 1
         .item
           padding 0 20px
+    .side-menu-wrapper
+      position fixed
+      z-index 999
+      top 0
+      left 0
+      width 100%
+      height 100%
+      overflow hidden
+      background $color-mask
+
 </style>

@@ -29,7 +29,7 @@
           <div class="intro">
             <div class="left">
               <div class="coverImgUrl">
-                <img :src="playlistDetail.coverImgUrl" alt="" width="100%">
+                <img v-lazy="playlistDetail.coverImgUrl" alt="" width="100%">
               </div>
             </div>
             <div class="right">
@@ -37,7 +37,7 @@
                 {{playlistDetail.name}}
               </div>
               <div class="creator" v-if="playlistDetail.creator">
-                <img class="avatar" :src="playlistDetail.creator.avatarUrl" alt="" width="100">
+                <img class="avatar" v-lazy="playlistDetail.creator.avatarUrl" alt="" width="100">
                 <span class="nickname">{{playlistDetail.creator.nickname}}
                   <i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>
                 </span>

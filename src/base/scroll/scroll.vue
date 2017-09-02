@@ -43,7 +43,7 @@
         type: Boolean,
         default: false
       },
-      efreshDelay: {
+      refreshDelay: {
         type: Number,
         default: 50
       }
@@ -51,7 +51,7 @@
     mounted() {
       setTimeout(() => {
         this._initScroll();
-      }, 20);
+      }, 100);
     },
     methods: {
       _initScroll() {
@@ -72,7 +72,6 @@
         if (this.scrollStart) {
           let me = this;
           this.scroll.on('scrollStart', (pos) => {
-            console.log(1);
             me.$emit('scrollStart', pos);
           });
         }
@@ -102,13 +101,15 @@
     watch: {
       list() {
         setTimeout(() => {
+          console.log('刷新');
           this.refresh();
         }, 1000);
       },
       data() {
         setTimeout(() => {
+          console.log('刷新');
           this.refresh();
-        }, this.refreshDelay);
+        }, 1000);
       }
     }
   };
