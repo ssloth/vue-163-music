@@ -51,7 +51,9 @@
           </div>
         </div>
         <div class="footer">
-          <div class="progess-bar-wrapper"></div>
+          <div class="progess-bar-wrapper">
+            <progress-bar></progress-bar>
+          </div>
           <div class="operators">
             <div @click="toggleMode" class="mode">
               <i :class="modeIcon"></i>
@@ -109,6 +111,7 @@
 <script type="text/ecmascript-6">
   import Scroll from 'base/scroll/scroll';
   import FootList from 'components/foot-list/foot-list';
+  import ProgressBar from 'components/progress-bar/progress-bar';
   import {ERR_OK} from 'api/config';
   import {playMode} from 'common/js/config';
   import {mapGetters, mapMutations} from 'vuex';
@@ -120,7 +123,7 @@
       this.probeType = 3;
     },
     components: {
-      Scroll, FootList
+      Scroll, FootList, ProgressBar
     },
     data() {
       return {

@@ -17,7 +17,6 @@
         <list :data="latestPlaylistList" @select="selectPlaylist"></list>
         <list :data="homeRecommendMV" @select="selectPlaylist"></list>
         <list :data="anchorRadio" @select="selectPlaylist"></list>
-
       </div>
     </scroll>
     <router-view></router-view>
