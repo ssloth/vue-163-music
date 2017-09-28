@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86787e2f-5da4-4bff-bed2-7e9053181a5d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/progress-bar/progress-bar.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/app.js" afterPath="$PROJECT_DIR$/server/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/public/index.html" afterPath="$PROJECT_DIR$/server/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/stylus/variable.styl" afterPath="$PROJECT_DIR$/src/common/stylus/variable.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/player/player.vue" afterPath="$PROJECT_DIR$/src/components/player/player.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/recommend/recommend.vue" afterPath="$PROJECT_DIR$/src/components/recommend/recommend.vue" />
     </list>
     <ignored path="music-app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -381,7 +374,7 @@
       <workItem from="1504086837087" duration="5773000" />
       <workItem from="1504329340407" duration="5647000" />
       <workItem from="1504348228267" duration="51000" />
-      <workItem from="1506517785845" duration="4691000" />
+      <workItem from="1506517785845" duration="4926000" />
     </task>
     <task id="LOCAL-00001" summary="还在初始化项目，并优化了一下目录">
       <created>1500286385659</created>
@@ -558,11 +551,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504347434592</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="增加了进度条，但是没有功能没有完全实现。播放器内核还存在很多很多bug，准备要写单元测试了">
+      <created>1506522617323</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1506522617323</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201668000" />
+    <option name="totallyTimeSpent" value="201903000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -582,7 +582,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2769231" sideWeight="0.58556545" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15760441" sideWeight="0.5603217" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22453223" sideWeight="0.41443452" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22453223" sideWeight="0.41443452" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25538462" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -647,7 +647,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="还在初始化项目，并优化了一下目录" />
     <MESSAGE value="安装依赖、设计目录" />
     <MESSAGE value="完成轮播图" />
     <MESSAGE value="subnav" />
@@ -672,7 +671,8 @@
     <MESSAGE value="发现bug: -切歌后不能自动播放，并且歌词没有复位。&#10;初步判断是歌词、歌曲信息、歌曲url3个是异步加载的又会互相影响，所以出现bug...&#10;今天发现了3个bug，解决了1个还有5个....." />
     <MESSAGE value="将请求整合成了一个" />
     <MESSAGE value="修复拉几个bug ." />
-    <option name="LAST_COMMIT_MESSAGE" value="修复拉几个bug ." />
+    <MESSAGE value="增加了进度条，但是没有功能没有完全实现。播放器内核还存在很多很多bug，准备要写单元测试了" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了进度条，但是没有功能没有完全实现。播放器内核还存在很多很多bug，准备要写单元测试了" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
