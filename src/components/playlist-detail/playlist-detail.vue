@@ -158,7 +158,7 @@
         }
         this.$http.get(`/api/playlist/detail?id=${this.playlist.id}`).then(res => {
           res = res.data;
-          console.log(res.code, ERR_OK);
+          console.log(res);
           if (res.code === ERR_OK) {
             this.playlistDetail = createPlaylist(res.result);
             setTimeout(() => {
