@@ -134,7 +134,8 @@
         showLcr: false,
         currentLine: 0,
         currentTime: 0,
-        footListShow: false
+        footListShow: false,
+        playingLyric: ''
       };
     },
     methods: {
@@ -146,6 +147,9 @@
       },
       togglePlaying() {
         this.setPlaying(!this.playing);
+        if (this.songLyric) {
+          this.songLyric.togglePlay();
+        }
       },
       toFullScreen() {
         this.setFullScreen(true);
@@ -181,7 +185,6 @@
       ready() {
       },
       scroll(pos) {
-        console.log(pos);
       },
       scrollStart() {
         this.scrolling = true;
@@ -219,21 +222,19 @@
           var lyric = lyricResp.data;
           var url = urlResp.data;
           if (detail.code === ERR_OK && detail.songs.length > 0) {
-            console.log(url);
             this.songDetail = createSong(detail.songs[0], url.data[0].url);
             if (!lyric.lrc) {
               lyric.lrc = {
                 lyric: '[00:00.00] [10:00.00]暂无歌词:('
               };
             }
+          }
+          this.$nextTick(() => {
             this.songLyric = new Lyric(lyric.lrc.lyric, this._lrcHandler);
-          }
-          if (this.playing) {
-            this.$nextTick(() => {
-              this.$refs.audio.play();
+            if (this.playing) {
               this.songLyric.play();
-            });
-          }
+            }
+          });
         })).catch(function(error) {
           if (error.response) {
             // 请求已发出，但服务器响应的状态码不在 2xx 范围内
@@ -247,7 +248,7 @@
           console.log(error.config);
         });
       },
-      _lrcHandler({lineNum}) {
+      _lrcHandler({lineNum, txt}) {
         this.currentLine = lineNum;
         if (lineNum > 4) {
           let lineEl = this.$refs.lyricLine[lineNum - 4];
@@ -255,6 +256,7 @@
         } else {
           this.$refs.lyricList.scrollTo(0, 0, 1000);
         }
+        this.playingLyric = txt;
       },
       ...mapMutations({
         setFullScreen: 'SET_FULL_SCREEN',
@@ -284,16 +286,11 @@
     watch: {
       currentIndex() {
         this._getSongDetail();
-        this.currentTime = 0;
-        this.currentLine = 0;
       },
       playing(newPlaying) {
         const audio = this.$refs.audio;
         this.$nextTick(() => {
           newPlaying ? audio.play() : audio.pause();
-          if (this.songLyric.togglePlay) {
-            this.songLyric.togglePlay();
-          }
         });
       },
       currentPlaylist() {

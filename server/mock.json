@@ -1,0 +1,63 @@
+{
+  "getRecommendPicList": [
+    {
+      "id": 0,
+      "src": "http://p1.music.126.net/eOqAI98KGZ2GsxzqDJXJqw==/18608134790438242.jpg"
+    },
+    {
+      "id": 1,
+      "src": "http://p1.music.126.net/AuYYamqqPravz0g9AQgtIQ==/18932490718919553.jpg"
+    },
+    {
+      "id": 2,
+      "src": "http://p1.music.126.net/mBnlGtxZrr5m1KVvkjG2wA==/18968774602644610.jpg"
+    },
+    {
+      "id": 3,
+      "src": "http://p1.music.126.net/LSlBIV3F7-ycod3vaeJK2g==/19043541393324290.jpg"
+    },
+    {
+      "id": 4,
+      "src": "http://p1.music.126.net/lLmBMXPNsQGtXpf9dzMYLQ==/19155691579345167.jpg"
+    },
+    {
+      "id": 5,
+      "src": "http://p1.music.126.net/QOAmB5BPtdlYQ8FwAOwM7w==/18622428441636924.jpg"
+    }
+  ],
+  "getMockData": {
+    "title": "推荐歌单",
+    "list": [
+      {
+        "id": 0,
+        "pic": "http://p4.music.126.net/0ZCqzSaW2ZLGI47tiAuKmg==/18992963858451539.jpg?param=200y200",
+        "text": "【 天堂中的歌声丨那些英年早逝的歌手们 〗"
+      },
+      {
+        "id": 1,
+        "pic": "http://p1.music.126.net/LdBkRFf3G2k6iOetrEr6tA==/18970973625889235.jpg?param=200y200",
+        "text": "Summer Days ♪丨盛 夏 清 凉 指 南"
+      },
+      {
+        "id": 2,
+        "pic": "http://p3.music.126.net/nif1D-mko00iVV8c2VW6Zg==/19009456532820865.jpg?param=200y200",
+        "text": "『孤独』你好，再见。"
+      },
+      {
+        "id": 3,
+        "pic":"http://p4.music.126.net/NVyGQKSmfGUppN4mqOXuSQ==/19133701346734349.jpg?param=200y200",
+        "text": "弹起我的尤克里里，想撩的却是你"
+      },
+      {
+        "id": 4,
+        "pic":"http://p1.music.126.net/5QSdcjjWVF-grQyAsR1Xyw==/18574049930013380.jpg?param=140y140",
+        "text": "原来这才是男生最讨厌的五种女生"
+      },
+      {
+        "id": 5,
+        "pic":"http://p1.music.126.net/hteb27L9sT9tNEVk6eN2SA==/19063332602630202.jpg?param=140y140",
+        "text": "不是我放弃你，是我在狂奔时你却站在原地"
+      }
+    ]
+  }
+}
