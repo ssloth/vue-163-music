@@ -70,5 +70,5 @@
           .text
             margin 5px
             font-size $font-size-small
-            text-ellipsis(15px, 30px)
+            text-ellipsis()
 </style>
