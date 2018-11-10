@@ -27,8 +27,8 @@
 import Slider from 'base/slider/slider';
 import Scroll from 'base/scroll/scroll';
 import List from 'base/list/list';
-import Subnav from 'components/subnav/subnav';
-import { mapMutations } from 'vuex';
+import Subnav from 'pages/subnav/subnav';
+import {mapMutations} from 'vuex';
 export default {
   data() {
     return {
@@ -54,7 +54,10 @@ export default {
     });
   },
   components: {
-    Slider, Subnav, Scroll, List
+    Slider,
+    Subnav,
+    Scroll,
+    List
   },
   methods: {
     selectPlaylist(playlist) {
@@ -64,32 +67,35 @@ export default {
       this.setPlaylist(playlist);
     },
     _getRecommendPicList() {
-      this.$http.get('/api163/getRecommendPicList').then((res) => {
+      this.$http.get('/api163/getRecommendPicList').then(res => {
         this.picList = res.data;
       });
     },
     _getHomeRecommendPlaylistList() {
-      this.$http.get('/newapi/personalized').then((res) => {
-        this.homeRecommendPlaylistList = this._PlaylistFilter('推荐歌单', res.data);
+      this.$http.get('/newapi/personalized').then(res => {
+        this.homeRecommendPlaylistList = this._PlaylistFilter(
+          '推荐歌单',
+          res.data
+        );
       });
     },
     _getLatestPlaylistList() {
-      this.$http.get('/newapi/personalized/newsong').then((res) => {
+      this.$http.get('/newapi/personalized/newsong').then(res => {
         this.latestPlaylistList = this._PlaylistFilter('最新音乐', res.data);
       });
     },
     _getHomeRecommendMV() {
-      this.$http.get('/newapi/personalized/mv').then((res) => {
+      this.$http.get('/newapi/personalized/mv').then(res => {
         this.homeRecommendMV = this._PlaylistFilter('推荐MV', res.data, 2);
       });
     },
     _getAnchorRadio() {
-      this.$http.get('/newapi/personalized/djprogram').then((res) => {
+      this.$http.get('/newapi/personalized/djprogram').then(res => {
         this.anchorRadio = this._PlaylistFilter('主播电台', res.data);
       });
     },
     _getPrivatecontent() {
-      this.$http.get('/newapi/personalized/privatecontent').then((res) => {
+      this.$http.get('/newapi/personalized/privatecontent').then(res => {
         this.privatecontent = this._PlaylistFilter('独家放送', res.data);
       });
     },
@@ -107,7 +113,7 @@ export default {
         ret.list.push(data.result[i]);
         return ret;
       }
-      data.result.forEach((item) => {
+      data.result.forEach(item => {
         item.size = size;
 
         /** 临时使用 */
@@ -133,22 +139,31 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import '~common/stylus/variable'
-  .recommend
-    position fixed
-    top 97px
-    bottom 0
-    width 100%
-    .recommend-content
-      height 100%
-      overflow hidden
-      .slider-wrapper
-        position relative
-        width 100%
-        overflow hidden
-      .subnav-wrapper
-        width 100%
-      .list-wrapper
-        padding-bottom 50px
+@import '~common/stylus/variable';
 
+.recommend {
+  position: fixed;
+  top: 97px;
+  bottom: 0;
+  width: 100%;
+
+  .recommend-content {
+    height: 100%;
+    overflow: hidden;
+
+    .slider-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .subnav-wrapper {
+      width: 100%;
+    }
+
+    .list-wrapper {
+      padding-bottom: 50px;
+    }
+  }
+}
 </style>

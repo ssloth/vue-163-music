@@ -23,23 +23,19 @@ export default {
       barWidth: null
     };
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.barWidth = this.$refs.bar.clientWidth;
-      console.log(this.barWidth);
-    });
-  },
   props: ['currentTime', 'totalTime'],
   computed: {
     progressStyle() {
       return {width: (this.currentTime * 100) / this.totalTime + '%'};
     },
     percent() {
+      this.barWidth = this.$refs.bar.clientWidth;
       return this.touch.local / this.barWidth > 1
         ? 1
         : this.touch.local / this.barWidth;
     },
     touchStyle() {
+      this.barWidth = this.$refs.bar.clientWidth;
       let width =
         this.touch.local / this.barWidth > 1
           ? 1
@@ -60,7 +56,9 @@ export default {
           : touches[0].clientX - offset - sideWidth;
     },
     touchend({touches}) {
-      this.touching = false;
+      setTimeout(() => {
+        this.touching = false;
+      }, 1000);
       this.$emit('barTouch', this.totalTime * this.percent);
     },
     _setSongProcess(time) {

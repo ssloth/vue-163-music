@@ -12,18 +12,20 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import Headers from 'components/headers/headers';
-  import Tab from 'components/tab/tab';
-  import Player from 'components/player/player';
-  import StatusBar from 'base/status-bar/status-bar';
+import Headers from 'pages/headers/headers';
+import Tab from 'pages/tab/tab';
+import Player from 'pages/player/player';
+import StatusBar from 'base/status-bar/status-bar';
 
-  export default {
-    components: {
-      Headers, Tab, StatusBar, Player
-    }
-  };
+export default {
+  components: {
+    Headers,
+    Tab,
+    StatusBar,
+    Player
+  }
+};
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-
 </style>

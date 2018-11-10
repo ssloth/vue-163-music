@@ -26,14 +26,14 @@
             <transition name="shift">
               <div v-show="showLcr" class="lyric-wrapper">
                 <div class="background"></div>
-                <div v-show="scrolling" class="line-wrapper">
+                <div ref="line" v-show="scrolling" class="line-wrapper">
                   <i class="fa fa-play"></i>
                   <span class="line"></span>
                   <span class="time">01:22</span>
                 </div>
-                <scroll ref="lyricList" v-if="songLyric" @scroll="scroll" @scrollStart="scrollStart " @scrollEnd="scrollEnd" :data="songLyric" :scrollEnd="true" :scrollStart="true" :listenScroll="true" :probeType="probeType">
+                <scroll ref="lyricList" v-show="songLyric" @scroll="scroll" @scrollStart="scrollStart " @scrollEnd="scrollEnd" :data="songLyric" :scrollEnd="true" :scrollStart="true" :listenScroll="true" :probeType="probeType">
                   <div class="lyric">
-                    <p ref="lyricLine" :class="{current:currentLine===index}" v-for="(line,index) in songLyric.lines">
+                    <p ref="lyricLine"  :class="{current:currentLine===index}" v-for="(line,index) in songLyric.lines" :key="index">
                       {{line.txt}}</p>
                   </div>
                 </scroll>
@@ -97,7 +97,7 @@
 <script type="text/ecmascript-6">
 import Scroll from 'base/scroll/scroll';
 import ProgressBar from 'base/progress-bar/progress-bar';
-import FootList from 'components/foot-list/foot-list';
+import FootList from 'pages/foot-list/foot-list';
 import {ERR_OK} from 'api/config';
 import {playMode} from 'common/js/config';
 import {mapGetters, mapMutations} from 'vuex';
@@ -108,6 +108,10 @@ export default {
   created() {
     this.probeType = 3;
   },
+  mounted() {
+    this.line = this.$refs.line;
+    console.log(this.line);
+  },
   components: {
     Scroll,
     FootList,
@@ -117,6 +121,7 @@ export default {
     return {
       isNull: false,
       scrolling: false,
+      scrolTimer: false,
       songDetail: {},
       songLyric: {},
       showLcr: false,
@@ -171,12 +176,17 @@ export default {
       }
     },
     ready() {},
-    scroll(pos) {},
+    scroll(pos) {
+      console.log(pos);
+    },
     scrollStart() {
+      if (this.scrolTimer) clearTimeout(this.scrolTimer);
       this.scrolling = true;
     },
     scrollEnd() {
-      this.scrolling = false;
+      this.scrolTimer = setTimeout(() => {
+        this.scrolling = false;
+      }, 2000);
     },
     error(e) {
       console.log(e);
@@ -255,13 +265,15 @@ export default {
       this._destroyLyric();
       this.songLyric = new Lyric(lyric.lrc.lyric, ({lineNum, txt}) => {
         this.currentLine = lineNum;
-        if (lineNum > 4) {
-          let lineEl = this.$refs.lyricLine[lineNum - 4];
-          this.$refs.lyricList.scrollToElement(lineEl, 1000);
-        } else {
-          this.$refs.lyricList.scrollTo(0, 0, 1000);
+        if (!this.scrolling) {
+          if (lineNum > 4) {
+            let lineEl = this.$refs.lyricLine[lineNum - 4];
+            this.$refs.lyricList.scrollToElement(lineEl, 1000);
+          } else {
+            this.$refs.lyricList.scrollTo(0, 0, 1000);
+          }
+          this.playingLyric = txt;
         }
-        this.playingLyric = txt;
       });
       if (this.playing) {
         this.songLyric.play();
@@ -272,6 +284,14 @@ export default {
         this.songLyric.stop();
         this.songLyric = null;
       }
+    },
+    _updateSong() {
+      this.$nextTick(() => {
+        this.setPlaying(true);
+        setTimeout(() => {
+          this.$refs.audio.play();
+        }, 500);
+      });
     },
     ...mapMutations({
       setFullScreen: 'SET_FULL_SCREEN',
@@ -301,11 +321,12 @@ export default {
   watch: {
     currentIndex() {
       this._getSongDetail();
+      this._updateSong();
     },
     playing(newPlaying) {
       const audio = this.$refs.audio;
+      console.log(newPlaying);
       this.$nextTick(() => {
-        // audio.load();
         newPlaying ? audio.play() : audio.pause();
       });
     },
