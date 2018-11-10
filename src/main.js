@@ -1,6 +1,6 @@
 import 'common/stylus/index.styl';
 import Vue from 'vue';
-import App from './App';
+import App from './app';
 import router from './router';
 import store from './store';
 import axios from 'axios';
@@ -19,5 +19,5 @@ new Vue({
   router,
   store,
   template: '<App/>',
-  components: {App}
+  components: { App }
 });

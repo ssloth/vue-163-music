@@ -43,7 +43,7 @@
         </div>
         <div class="footer">
           <div class="progess-bar-wrapper">
-            <progress-bar :currentTime="currentTime" :totalTime="totalTime"></progress-bar>
+            <progress-bar @barTouch="barTouch" :currentTime="currentTime" :totalTime="totalTime"></progress-bar>
           </div>
           <div class="operators">
             <div @click="toggleMode" class="mode">
@@ -96,12 +96,12 @@
 
 <script type="text/ecmascript-6">
 import Scroll from 'base/scroll/scroll';
+import ProgressBar from 'base/progress-bar/progress-bar';
 import FootList from 'components/foot-list/foot-list';
-import ProgressBar from 'components/progress-bar/progress-bar';
-import { ERR_OK } from 'api/config';
-import { playMode } from 'common/js/config';
-import { mapGetters, mapMutations } from 'vuex';
-import { createSong } from 'common/js/song';
+import {ERR_OK} from 'api/config';
+import {playMode} from 'common/js/config';
+import {mapGetters, mapMutations} from 'vuex';
+import {createSong} from 'common/js/song';
 import Lyric from 'lyric-parser';
 export default {
   props: {},
@@ -109,7 +109,9 @@ export default {
     this.probeType = 3;
   },
   components: {
-    Scroll, FootList, ProgressBar
+    Scroll,
+    FootList,
+    ProgressBar
   },
   data() {
     return {
@@ -168,10 +170,8 @@ export default {
         this.setCurrentIndex(0);
       }
     },
-    ready() {
-    },
-    scroll(pos) {
-    },
+    ready() {},
+    scroll(pos) {},
     scrollStart() {
       this.scrolling = true;
     },
@@ -183,7 +183,9 @@ export default {
     },
     updateTime(e) {
       this.currentTime = e.target.currentTime;
-      this.totalTime = e.target.duration;
+      this.totalTime = isNaN(e.target.duration)
+        ? this.totalTime
+        : e.target.duration;
     },
     loop() {
       this.$refs.audio.currentTime = 0;
@@ -201,52 +203,75 @@ export default {
         this.forward();
       }
     },
+    barTouch(time) {
+      this.$refs.audio.currentTime = time;
+      console.log(time);
+      this.songLyric.seek(time * 1000);
+    },
     _getSongDetail() {
-      this.$http.all([
-        this.$http.get(`/api/song/detail/?id=${this.song.id}&ids=[${this.song.id}]`),
-        this.$http.get(`/api/song/lyric?os=pc&id=${this.song.id}&lv=-1&kv=-1&tv=-1`),
-        this.$http.get(`/newapi/music/url?id=${this.song.id}`)
-      ]).then(this.$http.spread((detailResp, lyricResp, urlResp) => {
-        var detail = detailResp.data;
-        var lyric = lyricResp.data;
-        var url = urlResp.data;
-        if (detail.code === ERR_OK && detail.songs.length > 0) {
-          this.songDetail = createSong(detail.songs[0], url.data[0].url);
-          if (!lyric.lrc) {
-            lyric.lrc = {
-              lyric: '[00:00.00] [10:00.00]暂无歌词:('
-            };
-          }
-        }
-        this.$nextTick(() => {
-          this.songLyric = new Lyric(lyric.lrc.lyric, ({ lineNum, txt }) => {
-            this.currentLine = lineNum;
-            if (lineNum > 4) {
-              let lineEl = this.$refs.lyricLine[lineNum - 4];
-              this.$refs.lyricList.scrollToElement(lineEl, 1000);
-            } else {
-              this.$refs.lyricList.scrollTo(0, 0, 1000);
+      this.$http
+        .all([
+          this.$http.get(
+            `/api/song/detail/?id=${this.song.id}&ids=[${this.song.id}]`
+          ),
+          this.$http.get(
+            `/api/song/lyric?os=pc&id=${this.song.id}&lv=-1&kv=-1&tv=-1`
+          ),
+          this.$http.get(`/newapi/music/url?id=${this.song.id}`)
+        ])
+        .then(
+          this.$http.spread((detailResp, lyricResp, urlResp) => {
+            var detail = detailResp.data;
+            var lyric = lyricResp.data;
+            var url = urlResp.data;
+            if (detail.code === ERR_OK && detail.songs.length > 0) {
+              this.songDetail = createSong(detail.songs[0], url.data[0].url);
+              if (!lyric.lrc) {
+                lyric.lrc = {
+                  lyric: '[00:00.00] [10:00.00]暂无歌词:('
+                };
+              }
             }
-            this.playingLyric = txt;
-          });
-          if (this.playing) {
-            this.songLyric.play();
+            this.$nextTick(() => {
+              this._initLyric(lyric);
+            });
+          })
+        )
+        .catch(error => {
+          if (error.response) {
+            this.songLyric = null;
+            // 请求已发出，但服务器响应的状态码不在 2xx 范围内
+            console.log('error', error.response.data);
+            console.log('error', error.response.status);
+            console.log('error', error.response.headers);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
           }
+          console.log(error.config);
         });
-      })).catch(function (error) {
-        this._getSongDetail();
-        if (error.response) {
-          this.songLyric = null;
-          // 请求已发出，但服务器响应的状态码不在 2xx 范围内
-          console.log('error', error.response.data);
-          console.log('error', error.response.status);
-          console.log('error', error.response.headers);
+    },
+    _initLyric(lyric) {
+      this._destroyLyric();
+      this.songLyric = new Lyric(lyric.lrc.lyric, ({lineNum, txt}) => {
+        this.currentLine = lineNum;
+        if (lineNum > 4) {
+          let lineEl = this.$refs.lyricLine[lineNum - 4];
+          this.$refs.lyricList.scrollToElement(lineEl, 1000);
         } else {
-          // Something happened in setting up the request that triggered an Error
-          console.log('Error', error.message);
+          this.$refs.lyricList.scrollTo(0, 0, 1000);
         }
-        console.log(error.config);
+        this.playingLyric = txt;
       });
+      if (this.playing) {
+        this.songLyric.play();
+      }
+    },
+    _destroyLyric() {
+      if (this.songLyric && this.songLyric.stop) {
+        this.songLyric.stop();
+        this.songLyric = null;
+      }
     },
     ...mapMutations({
       setFullScreen: 'SET_FULL_SCREEN',
@@ -280,7 +305,7 @@ export default {
     playing(newPlaying) {
       const audio = this.$refs.audio;
       this.$nextTick(() => {
-        this.$refs.audio.load();
+        // audio.load();
         newPlaying ? audio.play() : audio.pause();
       });
     },

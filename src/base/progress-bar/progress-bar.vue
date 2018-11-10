@@ -1,9 +1,9 @@
 <template>
   <div class="progress-bar">
     <div class="current-date">{{currentTime|dataFormat}}</div>
-    <div class="bar-wrapper" ref="bar" @touchstart="touchstart" @touchmove="touchmove" @touchend="touchend">
-      <div class="progress" :style="progressStyle">
-        <div class="progress-dot"></div>
+    <div class="bar-wrapper" ref="bar">
+      <div class="progress" :style="[touching?touchStyle:progressStyle ]">
+        <div class="progress-dot" @touchstart="touchstart" @touchmove="touchmove" @touchend="touchend"></div>
       </div>
     </div>
     <div class="total-date">{{totalTime|dataFormat}}</div>
@@ -11,32 +11,62 @@
 </template>
 
 <script type="text/ecmascript-6">
+const sideWidth = 47.5;
+const offset = window.outerWidth * 0.025;
 export default {
   data() {
     return {
-      touch: {}
+      touch: {
+        local: null
+      },
+      touching: false,
+      barWidth: null
     };
   },
-  props: ['currentTime', 'totalTime'],
-  created() {
-    this.pageWidth = window.outerWidth;
+  mounted() {
+    this.$nextTick(() => {
+      this.barWidth = this.$refs.bar.clientWidth;
+      console.log(this.barWidth);
+    });
   },
+  props: ['currentTime', 'totalTime'],
   computed: {
     progressStyle() {
-      return { width: this.currentTime * 100 / this.totalTime + '%' };
+      return {width: (this.currentTime * 100) / this.totalTime + '%'};
+    },
+    percent() {
+      return this.touch.local / this.barWidth > 1
+        ? 1
+        : this.touch.local / this.barWidth;
+    },
+    touchStyle() {
+      let width =
+        this.touch.local / this.barWidth > 1
+          ? 1
+          : this.touch.local / this.barWidth;
+      return {
+        width: width * 100 + '%'
+      };
     }
   },
   methods: {
-    touchstart({ touches }) {
-      this.touch.begin = touches[0].target;
+    touchstart({touches}) {
+      this.touching = true;
     },
-    touchmove({ touches }) {
-      // let local = touches[0].pageX;
+    touchmove({touches}) {
+      this.touch.local =
+        touches[0].clientX - offset - sideWidth < 0
+          ? 0
+          : touches[0].clientX - offset - sideWidth;
     },
-    touchend({ touches }) {
-      this.touch.end = this.$refs.bar.clientWidth;
+    touchend({touches}) {
+      this.touching = false;
+      this.$emit('barTouch', this.totalTime * this.percent);
     },
-    _getDotLocal(x) { }
+    _setSongProcess(time) {
+      this.currentTime = time;
+    },
+    _getDotLocal(x) {}
   },
   filters: {
     dataFormat(date) {
