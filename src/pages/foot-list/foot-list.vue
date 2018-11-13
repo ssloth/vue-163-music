@@ -18,6 +18,7 @@
           <li
             class="song"
             v-for="(song,index) in currentPlaylist"
+            :key="index"
             @click="selectItem(song,index)"
           >
             <div class="text">
@@ -49,7 +50,7 @@
     methods: {
       selectItem(item, index) {
         this.selectPlay({
-          list: this.playlistDetail.songs,
+          list: this.currentPlaylist,
           index: index
         });
       },
@@ -65,50 +66,72 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "~common/stylus/variable"
-  .foot-list
-    position fixed
-    bottom 0
-    height 300px
-    width 100%
-    z-index 120
-    background $color-background
-    .header
-      display flex
-      height 40px
-      line-height 40px
-      font-size $font-size-medium
-      margin 0 15px
-      .mode
-        flex 1
-      .collection
-        flex 60px 0 0
-        text-align center
-      .clear
-        flex 60px 0 0
-        text-align center
-    .list-wrapper
-      color $color-text-l
-      overflow hidden
-      height 100%
-      .song
-        display flex
-        align-items center
-        margin 0 15px
-        border-bottom 1px solid $color-background-l
-        .text
-          flex 1 0 0
-          text-ellipsis()
-          .name
-            font-size $font-size-medium
-            color $color-text-ll
-            line-height 35px
-          .description
-            font-size $font-size-small-s
-            color $color-text
-            line-height 15px
-        .ctrl
-          flex 20px 0 0
-          text-align center
-          font-size $font-size-small-s
+@import '~common/stylus/variable';
+
+.foot-list {
+  position: fixed;
+  bottom: 0;
+  height: 300px;
+  width: 100%;
+  z-index: 120;
+  background: $color-background;
+
+  .header {
+    display: flex;
+    height: 40px;
+    line-height: 40px;
+    font-size: $font-size-medium;
+    margin: 0 15px;
+
+    .mode {
+      flex: 1;
+    }
+
+    .collection {
+      flex: 60px 0 0;
+      text-align: center;
+    }
+
+    .clear {
+      flex: 60px 0 0;
+      text-align: center;
+    }
+  }
+
+  .list-wrapper {
+    color: $color-text-l;
+    overflow: hidden;
+    height: 100%;
+
+    .song {
+      display: flex;
+      align-items: center;
+      margin: 0 15px;
+      border-bottom: 1px solid $color-background-l;
+
+      .text {
+        flex: 1 0 0;
+        text-ellipsis();
+
+        .name {
+          font-size: $font-size-medium;
+          color: $color-text-ll;
+          line-height: 35px;
+        }
+
+        .description {
+          font-size: $font-size-small-s;
+          color: $color-text;
+          line-height: 15px;
+        }
+      }
+
+      .ctrl {
+        flex: 20px 0 0;
+        text-align: center;
+        font-size: $font-size-small-s;
+      }
+    }
+  }
+}
 </style>

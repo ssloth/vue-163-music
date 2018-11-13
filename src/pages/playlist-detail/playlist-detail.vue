@@ -158,7 +158,6 @@
         }
         this.$http.get(`/api/playlist/detail?id=${this.playlist.id}`).then(res => {
           res = res.data;
-          console.log(res);
           if (res.code === ERR_OK) {
             this.playlistDetail = createPlaylist(res.result);
             setTimeout(() => {
@@ -175,169 +174,248 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "~common/stylus/variable";
-  @import "~common/stylus/mixin";
-  @keyframes lazy-animation {
-    from {
-      opacity 0
+@import '~common/stylus/variable';
+@import '~common/stylus/mixin';
+
+@keyframes lazy-animation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+img[lazy=loading] {
+  animation: lazy-animation 2s;
+}
+
+img[lazy=loaded] {
+  animation: lazy-animation 2s;
+}
+
+.playlist-detail {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: $color-text-lll;
+  background: $color-background;
+
+  .fixed-header {
+    position: fixed;
+    display: flex;
+    z-index: 1000;
+    padding-top: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+
+    .background {
+      position: absolute;
+      z-index: -1;
+      top: -190px;
+      left: 0;
+      height: 250px;
+      width: 100%;
+      opacity: 0;
+
+      &:after {
+        position: absolute;
+        content: '';
+        display: block;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 1);
+        z-index: -2;
+      }
+
+      img {
+        filter: blur(50px);
+      }
     }
-    to {
-      opacity 1
+
+    .back {
+      flex: 40px 0 0;
+      font-size: $font-size-large-x;
+      text-align: center;
+      line-height: 40px;
+    }
+
+    .description {
+      flex: 1 0 0;
+      overflow: hidden;
+      padding: 5px 0;
+
+      .title {
+        font-size: $font-size-medium-x;
+        line-height: 20px;
+        text-ellipsis();
+      }
+
+      .text {
+        font-size: $font-size-small-s;
+        text-ellipsis();
+      }
+    }
+
+    .search {
+      flex: 40px 0 0;
+    }
+
+    .menu {
+      flex: 40px 0 0;
     }
   }
-  img[lazy=loading]{
-    animation lazy-animation 2s
+
+  .header-wrapper {
+    padding-top: 60px;
+    width: 100%;
+
+    .background {
+      position: absolute;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 250px;
+      z-index: -1;
+
+      img {
+        opacity: 0.8;
+        filter: blur(50px);
+      }
+    }
+
+    .intro {
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+
+      .left {
+        flex: 120px 0 0;
+      }
+
+      .right {
+        flex: 1 0 0;
+        padding: 0 20px;
+
+        .name {
+          padding-bottom: 20px;
+          font-size: $font-size-medium;
+        }
+
+        .creator {
+          display: flex;
+          align-items: center;
+
+          .avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+
+          .nickname {
+            font-size: $font-size-small;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+
+    .bar {
+      display: flex;
+      padding: 10px 0;
+      text-align: center;
+
+      .item {
+        flex: 1;
+        line-height: 25px;
+        font-size: $font-size-medium;
+
+        i {
+          font-size: $font-size-large-x;
+        }
+      }
+    }
   }
-  img[lazy=loaded] {
-    animation lazy-animation 2s
+
+  .song-list-wrapper {
+    color: $color-text-ll;
+
+    .ctrl-bar {
+      display: flex;
+      line-height: 40px;
+
+      .play-icon {
+        text-align: center;
+        flex: 50px 0 0;
+      }
+
+      .text {
+        flex: 1 0 0;
+
+        span {
+          color: $color-text;
+        }
+      }
+
+      .multi-select {
+        line-height: 40px;
+        flex: 50px 0 0;
+      }
+    }
+
+    .song-list {
+      font-weight: 200;
+
+      .song {
+        display: flex;
+        align-items: center;
+
+        .index {
+          flex: 50px 0 0;
+          line-height: 50px;
+          text-align: center;
+        }
+
+        .text {
+          flex: 1 0 0;
+          text-ellipsis();
+
+          .name {
+            font-size: $font-size-medium-x;
+            line-height: 35px;
+          }
+
+          .description {
+            font-size: $font-size-small;
+            color: $color-text;
+            line-height: 15px;
+          }
+        }
+
+        .ctrl {
+          flex: 50px 0 0;
+        }
+      }
+    }
   }
+}
 
-  .playlist-detail
-    position fixed
-    z-index 100
-    top 0
-    left 0
-    width 100%
-    height 100%
-    color $color-text-lll
-    background $color-background
-    .fixed-header
-      position fixed
-      display flex
-      z-index 1000
-      padding-top 10px
-      top 0
-      left 0
-      width 100%
-      height 40px
-      overflow hidden
-      .background
-        position absolute
-        z-index -1
-        top -190px
-        left 0
-        height 250px
-        width 100%
-        opacity 0
-        &:after
-          position absolute
-          content ""
-          display block
-          top 0
-          width 100%
-          height 100%
-          background rgba(0, 0, 0, 1)
-          z-index -2
-        img
-          filter blur(50px)
-      .back
-        flex 40px 0 0
-        font-size $font-size-large-x
-        text-align center
-        line-height 40px
-      .description
-        flex 1 0 0
-        overflow hidden
-        padding 5px 0
-        .title
-          font-size $font-size-medium-x
-          line-height 20px
-          text-ellipsis()
-        .text
-          font-size $font-size-small-s
-          text-ellipsis()
-      .search
-        flex 40px 0 0
-      .menu
-        flex 40px 0 0
-    .header-wrapper
-      padding-top 60px
-      width 100%
-      .background
-        position absolute
-        overflow hidden
-        top 0
-        left 0
-        width 100%
-        height 250px
-        z-index -1
-        img
-          opacity 0.8
-          filter blur(50px)
-      .intro
-        padding 0 20px
-        display flex
-        align-items center
-        .left
-          flex 120px 0 0
-        .right
-          flex 1 0 0
-          padding 0 20px
-          .name
-            padding-bottom 20px
-            font-size $font-size-medium
-          .creator
-            display flex
-            align-items center
-            .avatar
-              width 30px
-              height 30px
-              border-radius 50%
-            .nickname
-              font-size $font-size-small
-              margin-left 10px
-      .bar
-        display flex
-        padding 10px 0
-        text-align center
-        .item
-          flex 1
-          line-height 25px
-          font-size $font-size-medium
-          i
-            font-size $font-size-large-x
-    .song-list-wrapper
-      color $color-text-ll
-      .ctrl-bar
-        display flex
-        line-height 40px
-        .play-icon
-          text-align center
-          flex 50px 0 0
-        .text
-          flex 1 0 0
-          span
-            color $color-text
-        .multi-select
-          line-height 40px
-          flex 50px 0 0
-      .song-list
-        font-weight 200
-        .song
-          display flex
-          align-items center
-          .index
-            flex 50px 0 0
-            line-height 50px
-            text-align center
-          .text
-            flex 1 0 0
-            text-ellipsis()
-            .name
-              font-size $font-size-medium-x
-              line-height 35px
-            .description
-              font-size $font-size-small
-              color $color-text
-              line-height 15px
-          .ctrl
-            flex 50px 0 0
+.slider-enter-active, .slider-leave-active {
+  transition: all 0.2s;
+  opacity: 1;
+}
 
-  .slider-enter-active, .slider-leave-active
-    transition all 0.2s
-    opacity 1
-
-  .slider-enter, .slider-leave-to
-    transform translate3d(0, 100%, 0)
-    opacity 0
+.slider-enter, .slider-leave-to {
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
+}
 </style>

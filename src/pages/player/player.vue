@@ -3,7 +3,7 @@
     <transition name="move">
       <div v-show="fullScreen" class="normal-player">
         <div class="background">
-          <img width="100%" height="100%" v-lazy="songDetail.albumBlurPicUrl" alt="">
+          <img width="100%" height="100%" :src="songDetail.albumBlurPicUrl" alt="">
         </div>
         <div class="header">
           <div @click="back" class="back">
@@ -19,7 +19,7 @@
             <transition name="fade">
               <div v-show="!showLcr" class="cd-wrapper ">
                 <div class="cd rotate" :class="{'paused':!playing}">
-                  <img v-lazy="songDetail.albumBlurPicUrl" alt="" class="image">
+                  <img :src="songDetail.albumBlurPicUrl" alt="" class="image">
                 </div>
               </div>
             </transition>
@@ -70,7 +70,7 @@
     <transition name="mini">
       <div @click="toFullScreen" v-show="!fullScreen&&songDetail.albumBlurPicUrl" class="mini-player">
         <div class="img-wrapper">
-          <img v-lazy="songDetail.albumBlurPicUrl" alt="" width="100%" height="100%">
+          <img :src="songDetail.albumBlurPicUrl" alt="" width="100%" height="100%">
         </div>
         <div class="text">
           <div class="name">{{song.name}}</div>
